@@ -2,6 +2,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Get the form element
     const contactForm = document.querySelector(".contact-form");
+    
+    // Get the menu icon and nav links
+    const menuIcon = document.getElementById("menu-icon");
+    const navLinks = document.getElementById("nav-links");
+
+    // Toggle the display of nav links when the menu icon is clicked
+    menuIcon.addEventListener("click", function() {
+        navLinks.classList.toggle("show");
+    });
 
     // Add an event listener for form submission
     contactForm.addEventListener("submit", function(event) {
