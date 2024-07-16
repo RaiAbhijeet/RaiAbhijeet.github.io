@@ -4,12 +4,14 @@ R
 
 .nav__logo-name
 Rian Lot.
+Abhijeet R.
 
 .nav__title
 Menu
 
 .nav__name
 Rian
+Abhijeet
 
 .nav__link
 Home - About Me - Projects - Contact Me
@@ -18,6 +20,7 @@ Home - About Me - Projects - Contact Me
 ========== HOME ==========
 .home__name
 Rian Lot
+Abhijeet Rai
 
 .home__social-link
 https://www.instagram.com/
@@ -28,6 +31,12 @@ https://github.com/
 <b>Frontend Developer</b>, with knowledge in web 
 development and design, I offer the best 
 projects resulting in quality work.
+
+<b>Extended Reality Designer</b>,  with specializing in 
+creating immersive and interactive applications.<br> 
+I bring augmented and virtual realities to life.
+                  
+
 
 .home__scroll-text
 Scroll Down
