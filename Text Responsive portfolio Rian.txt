@@ -52,10 +52,19 @@ Passionate about creating <b>Web Pages</b> with
 experience and many clients are happy with 
 the projects carried out.
 
+Passionate about creating <b>Augmented</b> and <br>
+<b>Virtual</b> interactive applications.
+My expertise lies in bringing augmented and virtual realities
+to life through creative design.
+
 .about__item
 <b>My Skills Are:</b> HTML, CSS, JavaScript, 
 React, Git & GitHub, Bootstrap, Flutter & 
 Figma.
+
+<b>My Skills Are:</b> Unreal Engine, Unity, C & C++, 
+Perforce, Git & GitHub.
+
 
 .button
 Contact Me
@@ -73,16 +82,36 @@ Web Design
 Beautiful and elegant designs with 
 interfaces that are intuitive, efficient 
 and pleasant  to use for the user.
+#Abi
+Augmented Reality (AR) Application Development
+Transform user interactions with custom AR applications 
+for marketing, education, entertainment, or industrial use. 
+From concept to deployment, I deliver immersive, interactive 
+experiences that enhance user engagement and bring your vision to life.
+
 
 Development
 Custom web development tailored to your 
 specifications, designed to provide a 
 flawless user experience.
+#Abi
+Virtual Reality (VR) Experience Design
+Create captivating VR experiences for training, simulations, 
+gaming, virtual tours, and more. Using the latest VR technologies,
+I design realistic and engaging environments that offer unparalleled 
+immersion and interactivity.
+
 
 Mobile App
 Design and transform website projects 
 into mobile apps to provide a seamless
 user experience.
+#Abi
+Mixed Reality (MR) Solutions
+Blend the physical and digital worlds with innovative MR solutions. 
+Ideal for healthcare, engineering, retail, and more, my customized 
+MR applications enhance productivity, creativity, and user experience 
+by seamlessly integrating real-time interactions with both realms.
 
 
 ========== PROJECTS ==========
