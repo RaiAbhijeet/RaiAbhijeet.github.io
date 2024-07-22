@@ -115,12 +115,17 @@ by seamlessly integrating real-time interactions with both realms.
 
 
 ========== PROJECTS ==========
+========== PORTFOLIO ==========
 .section__title-1
 Projects.
+Portfolio.
 
 .projects__subtitle 
 Website
 App
+#Abi
+AR App
+
 
 .projects__title 
 Restaurant Website
@@ -128,11 +133,25 @@ Yoga App
 Fast Food App
 Coffee Delivery Website
 Barbershop Website
+#Abi
+Maintenance Training
+Training Simulations
+Digital Twin
+Digital Inspection
+Layout Planner
 
 .projects__description
 Project that you carry out in the design 
 and structure of the layout, showing the 
 design at the client's request.
+#Abi
+Developed an on-site training solution using 
+Microsoft HoloLens for a major industrial client. 
+This AR program enabled hands-on training for 
+complex machinery directly at the worksite, allowing 
+trainees to interact with 3D holograms, receive real-time 
+guidance, and simulate various scenarios.
+
 
 .projects__link
 View
