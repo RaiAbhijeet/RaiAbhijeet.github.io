@@ -1,0 +1,12 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Rai;Abhijeet;;;
+FN:Abhijeet Rai
+TITLE:Software Engineer — XR, Digital Twins & AI Integration
+ORG:Independent
+TEL;TYPE=CELL:+491763632546
+EMAIL;TYPE=WORK:abhijeet.rai101@gmail.com
+URL:https://www.linkedin.com/in/abhijeet-rai-101
+ADR;TYPE=WORK:;;;Augsburg;Bayern;;Germany
+NOTE:XR (AR/VR) and AI integration for industrial and regulated domains.
+END:VCARD
