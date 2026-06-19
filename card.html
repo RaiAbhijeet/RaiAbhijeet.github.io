@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Abhijeet Rai — Card</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#F3EEE3">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+:root{
+  --paper:#F3EEE3;--paper-2:#EBE4D6;--ink:#1A1714;--ink-soft:#5B544B;
+  --cyan:#2B6E7F;--cyan-deep:#1E5260;--orange:#C8502A;--rule:#C9C0AE;
+  --grid:rgba(43,110,127,0.10);
+  --display:'Fraunces',serif;--body:'Newsreader',serif;--mono:'JetBrains Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{
+  font-family:var(--body);background-color:var(--paper);color:var(--ink);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:24px 24px;
+  min-height:100svh;display:flex;align-items:center;justify-content:center;
+  padding:max(20px,env(safe-area-inset-top)) 18px max(20px,env(safe-area-inset-bottom));
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none;}
+.card{
+  width:100%;max-width:380px;background:var(--paper);
+  border:1px solid var(--rule);border-radius:6px;
+  box-shadow:10px 10px 0 -2px var(--paper-2),10px 10px 0 -1px var(--rule);
+  overflow:hidden;
+}
+.head{padding:26px 24px 20px;border-bottom:1px solid var(--rule);position:relative;}
+.head .annot{position:absolute;top:14px;right:18px;font-family:var(--mono);font-size:10px;color:var(--orange);transform:rotate(2deg);letter-spacing:.04em;}
+.loc{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan-deep);display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;}
+.loc::before{content:"";width:22px;height:1px;background:var(--cyan);}
+.name{font-family:var(--display);font-weight:600;font-size:38px;line-height:.96;letter-spacing:-.02em;margin-bottom:10px;}
+.role{font-family:var(--mono);font-size:12.5px;line-height:1.7;color:var(--ink-soft);}
+.role b{color:var(--cyan-deep);font-weight:500;}
+.pitch{padding:20px 24px;font-size:17px;line-height:1.5;border-bottom:1px solid var(--rule);}
+.pitch em{font-style:italic;color:var(--cyan);}
+.qr-row{display:flex;gap:18px;align-items:center;padding:20px 24px;border-bottom:1px solid var(--rule);}
+.qr-row img{width:96px;height:96px;border:1px solid var(--rule);border-radius:4px;flex-shrink:0;}
+.qr-cap{font-family:var(--mono);font-size:11px;line-height:1.7;color:var(--ink-soft);}
+.qr-cap b{color:var(--ink);display:block;font-size:12px;margin-bottom:3px;}
+.actions{display:flex;flex-direction:column;gap:0;}
+.act{
+  display:flex;align-items:center;gap:14px;padding:16px 24px;
+  font-family:var(--mono);font-size:14px;border-bottom:1px solid var(--rule);
+  transition:background .15s;
+}
+.act:last-child{border-bottom:none;}
+.act:active{background:var(--paper-2);}
+.act .ic{width:30px;height:30px;border:1px solid var(--rule);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--cyan-deep);flex-shrink:0;}
+.act .lbl{flex:1;}
+.act .lbl span{display:block;font-size:11px;color:var(--ink-soft);}
+.act.save{background:var(--ink);color:var(--paper);}
+.act.save .ic{border-color:rgba(243,238,227,.3);color:var(--paper);}
+.act.save .lbl span{color:rgba(243,238,227,.6);}
+.act .arr{color:var(--orange);font-size:13px;}
+.foot{padding:14px 24px;font-family:var(--mono);font-size:10px;color:var(--ink-soft);text-align:center;letter-spacing:.04em;}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <span class="annot">// tap “save contact”</span>
+    <div class="loc">Augsburg · DACH</div>
+    <div class="name">Abhijeet<br>Rai</div>
+    <div class="role">Software Engineer<br><b>XR · Digital Twins · AI Integration</b><br>industrial &amp; regulated domains</div>
+  </div>
+  <div class="pitch">AR/VR and AI for the factory floor — bridging <em>semantic data</em> and the <em>spatial interface</em>.</div>
+  <div class="qr-row">
+    <img src="assets/img/qr-linkedin.png" alt="LinkedIn QR">
+    <div class="qr-cap"><b>Scan for LinkedIn</b>Point a camera here<br>to open my profile.</div>
+  </div>
+  <div class="actions">
+    <a class="act save" href="Abhijeet_Rai.vcf">
+      <span class="ic">↓</span><span class="lbl">Save to Contacts<span>adds name, role, email</span></span><span class="arr" style="color:var(--paper)">›</span>
+    </a>
+    <a class="act" href="mailto:abhijeet.rai101@gmail.com">
+      <span class="ic">✉</span><span class="lbl">Email<span>abhijeet.rai101@gmail.com</span></span><span class="arr">›</span>
+    </a>
+    <a class="act" href="https://www.linkedin.com/in/abhijeet-rai-101" target="_blank" rel="noopener">
+      <span class="ic">in</span><span class="lbl">LinkedIn<span>/in/abhijeet-rai-101</span></span><span class="arr">›</span>
+    </a>
+    <a class="act" href="index.html">
+      <span class="ic">▢</span><span class="lbl">Portfolio<span>selected work &amp; background</span></span><span class="arr">›</span>
+    </a>
+  </div>
+  <div class="foot">ABHIJEET RAI — XR &amp; INDUSTRIAL AI — AUGSBURG, DE</div>
+</div>
+</body>
+</html>
