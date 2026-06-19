@@ -47,15 +47,13 @@ img{max-width:100%;display:block;}
 ::selection{background:var(--orange);color:var(--paper);}
 
 .wrap{max-width:1140px;margin:0 auto;padding-left:32px;padding-right:32px;}
-/* alternating section bands — visually separate each segment (Filip's "shade each row") */
+/* alternating section bands — visually separate each segment (Filip's "shade each row").
+   The band is a translucent tint only; it deliberately has NO grid of its own so the
+   single body grid shows through underneath and stays aligned across every seam. */
 .band{position:relative;}
 .band::before{
   content:"";position:absolute;inset:0;z-index:-1;
-  background:var(--paper-2);
-  background-image:
-    linear-gradient(var(--grid) 1px,transparent 1px),
-    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
-  background-size:26px 26px;
+  background:rgba(199,184,150,0.34);
 }
 .mono{font-family:var(--mono);}
 .eyebrow{
