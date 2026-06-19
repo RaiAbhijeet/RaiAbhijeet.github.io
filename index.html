@@ -46,7 +46,17 @@ a{color:inherit;text-decoration:none;}
 img{max-width:100%;display:block;}
 ::selection{background:var(--orange);color:var(--paper);}
 
-.wrap{max-width:1140px;margin:0 auto;padding:0 32px;}
+.wrap{max-width:1140px;margin:0 auto;padding-left:32px;padding-right:32px;}
+/* alternating section bands — visually separate each segment (Filip's "shade each row") */
+.band{position:relative;}
+.band::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:var(--paper-2);
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:26px 26px;
+}
 .mono{font-family:var(--mono);}
 .eyebrow{
   font-family:var(--mono);font-size:12px;letter-spacing:.16em;
@@ -74,8 +84,8 @@ nav.scrolled{background:rgba(243,238,227,.92);border-bottom:1px solid var(--rule
 .nav-toggle{display:none;font-family:var(--mono);font-size:22px;background:none;border:none;cursor:pointer;}
 
 /* ───────────── Hero ───────────── */
-header.hero{padding:160px 0 90px;position:relative;}
-.hero-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:48px;align-items:center;}
+header.hero{padding:170px 32px 100px;position:relative;max-width:1140px;margin:0 auto;}
+.hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center;}
 .hero-loc{margin-bottom:22px;}
 .hero h1{
   font-family:var(--display);
@@ -104,10 +114,14 @@ header.hero{padding:160px 0 90px;position:relative;}
 .tag{font-family:var(--mono);font-size:12px;padding:6px 12px;border:1px solid var(--rule);border-radius:2px;color:var(--ink-soft);background:rgba(255,255,255,.25);}
 
 /* ───────────── Section frame ───────────── */
-section{padding:84px 0;}
+section{padding:96px 0;}
 .sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:46px;border-bottom:1px solid var(--rule);padding-bottom:16px;}
 .sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(30px,4vw,46px);letter-spacing:-.01em;}
-.sec-head .idx{font-family:var(--mono);font-size:13px;color:var(--cyan-deep);}
+.sec-head .idx{
+  font-family:var(--mono);font-size:12px;color:var(--cyan-deep);
+  letter-spacing:.04em;padding:5px 11px;border:1px solid var(--rule);
+  border-radius:2px;background:rgba(255,255,255,.35);white-space:nowrap;
+}
 
 /* ───────────── About ───────────── */
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
@@ -128,8 +142,15 @@ section{padding:84px 0;}
 .entry:hover{background:rgba(43,110,127,.05);}
 .entry-meta{font-family:var(--mono);font-size:12px;color:var(--ink-soft);line-height:1.8;}
 .entry-meta .loc{color:var(--cyan-deep);display:block;}
+.entry-meta .org{color:var(--ink);font-weight:700;}
 .entry-body h3{font-family:var(--display);font-weight:600;font-size:24px;margin-bottom:6px;}
 .entry-body p{font-size:17px;color:var(--ink-soft);max-width:62ch;}
+.entry-impact{
+  font-family:var(--mono);font-size:12px;color:var(--cyan-deep);
+  letter-spacing:.01em;margin-top:10px;display:flex;flex-wrap:wrap;gap:8px 18px;
+}
+.entry-impact span{display:inline-flex;align-items:center;gap:7px;}
+.entry-impact span::before{content:"▸";color:var(--orange);}
 .entry-status{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:2px;white-space:nowrap;}
 .st-live{color:var(--orange);border:1px solid var(--orange);}
 .st-wip{color:var(--ink-soft);border:1px dashed var(--rule);}
@@ -186,11 +207,23 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
   .nav-links.open{transform:none;}
   .nav-toggle{display:block;z-index:101;}
   .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
-  .hero-portrait{max-width:300px;margin-top:20px;}
+  .hero-portrait{max-width:340px;margin-top:28px;}
   .svc-grid{grid-template-columns:1fr;}
   .entry{grid-template-columns:1fr;gap:8px;}
   .entry-status{justify-self:start;}
   body{font-size:18px;background-size:22px 22px;}
+}
+/* mobile spacing fix — stop hero text kissing the left edge */
+@media(max-width:600px){
+  .wrap{padding-left:22px;padding-right:22px;}
+  nav{padding:16px 22px;}
+  header.hero{padding:128px 22px 64px;}
+  .hero h1{font-size:clamp(40px,11vw,60px);letter-spacing:-.01em;line-height:1.0;}
+  .hero-lede{font-size:20px;}
+  section{padding:64px 0;}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:12px;}
+  .about-grid{gap:36px;}
+  .about-grid p{font-size:19px;}
 }
 </style>
 </head>
@@ -229,8 +262,9 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
 </header>
 
 <main>
-<section id="about" class="wrap">
-  <div class="sec-head"><h2>About</h2><span class="idx">// 01 — background</span></div>
+<section id="about" class="band">
+ <div class="wrap">
+  <div class="sec-head"><h2>About</h2><span class="idx">01 / background</span></div>
   <div class="about-grid">
     <div>
       <p>I spend my time at an unusual seam: the <b>semantic data models</b> that describe a machine, and the <b>spatial interfaces</b> a technician actually uses to see it. Most people work one side of that line. I work the bridge.</p>
@@ -244,57 +278,64 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <li><span>Based</span><div>Augsburg, Germany — available across DACH</div></li>
     </ul>
   </div>
+ </div>
 </section>
 
 <section id="work" class="wrap">
-  <div class="sec-head"><h2>Selected work</h2><span class="idx">// 02 — the logbook</span></div>
+  <div class="sec-head"><h2>Selected work</h2><span class="idx">02 / the logbook</span></div>
   <div class="logbook">
     <article class="entry reveal">
-      <div class="entry-meta"><span class="loc">Munich, DE</span>Accenture · 2021–25<br>Senior Engineer, Digitalization</div>
+      <div class="entry-meta"><span class="loc">Munich, DE</span><span class="org">Accenture</span> · 2021–25<br>Senior Engineer, Digitalization</div>
       <div class="entry-body">
         <h3>CAD-overlay AR for rail inspection</h3>
         <p>HoloLens 2 experience overlaying engineering CAD onto physical rolling stock — registering the digital twin to what the technician sees, built with Unity, Unreal and Microsoft MRTK.</p>
+        <div class="entry-impact"><span>HoloLens 2 · MRTK</span><span>CAD ↔ physical registration</span><span>rail client deployment</span></div>
       </div>
       <span class="entry-status st-wip">write-up in progress</span>
     </article>
     <article class="entry reveal">
-      <div class="entry-meta"><span class="loc">DE / intl.</span>Accenture · 2021–25<br>aerospace client</div>
+      <div class="entry-meta"><span class="loc">DE / intl.</span><span class="org">Accenture</span> · 2021–25<br>aerospace client</div>
       <div class="entry-body">
         <h3>Real-time data into HoloLens applications</h3>
         <p>Integrating live sensor and machine-control data into dynamic HoloLens apps, and an interactive AR experience for an aerospace client — public-facing, hands-on.</p>
+        <div class="entry-impact"><span>live sensor + control data</span><span>real-time AR pipeline</span><span>public-facing experience</span></div>
       </div>
       <span class="entry-status st-wip">write-up in progress</span>
     </article>
     <article class="entry reveal">
-      <div class="entry-meta"><span class="loc">Augsburg, DE</span>Fraunhofer IGCV · 2021<br>M.Sc. thesis</div>
+      <div class="entry-meta"><span class="loc">Augsburg, DE</span><span class="org">Fraunhofer IGCV</span> · 2021<br>M.Sc. thesis</div>
       <div class="entry-body">
         <h3>Mixed reality for collaborative factory planning</h3>
         <p>A shared HoloLens workspace for laying out factory floors — gesture control, collision detection, live layout editing, working with BIM and IFC data standards. Evaluated with industry partners.</p>
+        <div class="entry-impact"><span>multi-user shared session</span><span>BIM / IFC standards</span><span>evaluated with industry partners</span></div>
       </div>
       <span class="entry-status st-wip">write-up in progress</span>
     </article>
     <article class="entry reveal">
-      <div class="entry-meta"><span class="loc">on-premise</span>own project<br>AI · regulated</div>
+      <div class="entry-meta"><span class="loc">on-premise</span><span class="org">own project</span><br>AI · regulated</div>
       <div class="entry-body">
         <h3>ArztAssistent — clinical documentation AI</h3>
         <p>Turns dictation and consultation notes into structured medical documents. Claude API + Python, structured output, DSGVO-compliant data handling — practical AI integration for a regulated field.</p>
+        <div class="entry-impact"><span>local Whisper STT + LLM</span><span>no cloud dependency</span><span>DSGVO-compliant</span></div>
       </div>
       <span class="entry-status st-wip">write-up in progress</span>
     </article>
   </div>
 </section>
 
-<section id="services" class="wrap">
-  <div class="sec-head"><h2>What I do</h2><span class="idx">// 03 — engagements</span></div>
+<section id="services" class="band">
+ <div class="wrap">
+  <div class="sec-head"><h2>What I do</h2><span class="idx">03 / engagements</span></div>
   <div class="svc-grid">
     <div class="svc reveal"><div class="n">AR / MR</div><h3>Spatial interfaces for industry</h3><p>Assembly guidance, remote service, training and inspection on HoloLens 2 and Meta Quest 3 — registered to real equipment, not a tech demo.</p></div>
     <div class="svc reveal"><div class="n">Digital twins</div><h3>Twin ↔ visual sync</h3><p>Connecting semantic / sensor data models to the spatial layer, so the twin and the thing on the floor actually agree.</p></div>
     <div class="svc reveal"><div class="n">AI integration</div><h3>LLMs where data can't leave</h3><p>On-premise, DSGVO-aware LLM and agent pipelines for regulated environments — local inference, share outcomes not raw data.</p></div>
   </div>
+ </div>
 </section>
 
 <section id="contact" class="wrap contact">
-  <div class="sec-head"><h2>Get in touch</h2><span class="idx">// 04 — contact</span></div>
+  <div class="sec-head"><h2>Get in touch</h2><span class="idx">04 / contact</span></div>
   <div class="contact-grid">
     <div>
       <h2>Let's talk about the <em>seam</em>.</h2>
