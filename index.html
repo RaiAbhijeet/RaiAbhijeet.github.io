@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abhijeet Rai — XR, Digital Twins & AI for Industry</title>
+<meta name="description" content="Software engineer building AR/VR and AI systems for industrial and regulated environments. Aerospace, rail, automotive, clinical.">
+<link rel="stylesheet" href="assets/fonts.css">
+<style>
+/* ───────────── Tokens ───────────── */
+:root{
+  --paper:#F3EEE3;
+  --paper-2:#EBE4D6;
+  --ink:#1A1714;
+  --ink-soft:#5B544B;
+  --cyan:#2B6E7F;      /* blueprint cyan — technical, not AI-blue */
+  --cyan-deep:#1E5260;
+  --orange:#C8502A;    /* annotation orange — live/interactive only */
+  --grid:rgba(43,110,127,0.09);
+  --rule:#C9C0AE;
+  --display:'Fraunces',Georgia,serif;
+  --body:'Newsreader',Georgia,serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--body);
+  color:var(--ink);
+  background-color:var(--paper);
+  /* grid-paper signature */
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:26px 26px;
+  font-size:19px;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;}
+img{max-width:100%;display:block;}
+::selection{background:var(--orange);color:var(--paper);}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 32px;}
+.mono{font-family:var(--mono);}
+.eyebrow{
+  font-family:var(--mono);font-size:12px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--cyan-deep);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--cyan);}
+
+/* ───────────── Nav ───────────── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 32px;
+  border-bottom:1px solid transparent;
+  transition:background .25s,border-color .25s;
+}
+nav.scrolled{background:rgba(243,238,227,.92);border-bottom:1px solid var(--rule);}
+.nav-logo{font-family:var(--mono);font-weight:700;font-size:15px;letter-spacing:.02em;}
+.nav-logo span{color:var(--cyan);}
+.nav-links{display:flex;gap:28px;font-family:var(--mono);font-size:13px;letter-spacing:.04em;}
+.nav-links a{position:relative;padding-bottom:3px;color:var(--ink-soft);transition:color .2s;}
+.nav-links a:hover{color:var(--ink);}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--orange);transition:width .25s;}
+.nav-links a:hover::after{width:100%;}
+.nav-toggle{display:none;font-family:var(--mono);font-size:22px;background:none;border:none;cursor:pointer;}
+
+/* ───────────── Hero ───────────── */
+header.hero{padding:160px 0 90px;position:relative;}
+.hero-grid{display:grid;grid-template-columns:1.35fr .9fr;gap:48px;align-items:center;}
+.hero-loc{margin-bottom:22px;}
+.hero h1{
+  font-family:var(--display);
+  font-weight:600;
+  font-size:clamp(48px,7.5vw,104px);
+  line-height:.94;
+  letter-spacing:-.02em;
+  margin-bottom:26px;
+}
+.hero h1 em{font-style:italic;color:var(--cyan);font-weight:500;}
+.hero-lede{font-size:clamp(20px,2.4vw,25px);max-width:30ch;color:var(--ink);margin-bottom:14px;}
+.hero-lede b{font-weight:600;}
+.hero-sub{font-family:var(--mono);font-size:13px;color:var(--ink-soft);line-height:1.9;letter-spacing:.01em;}
+.hero-portrait{position:relative;}
+.hero-portrait img{
+  width:100%;border-radius:2px;
+  filter:grayscale(.35) contrast(1.03);
+  border:1px solid var(--rule);
+  box-shadow:14px 14px 0 -2px var(--paper-2),14px 14px 0 -1px var(--rule);
+}
+/* hand-drawn annotation */
+.annot{position:absolute;font-family:var(--mono);font-size:11px;color:var(--orange);letter-spacing:.04em;white-space:nowrap;}
+.annot.tl{top:-28px;left:6px;transform:rotate(-3deg);}
+.annot svg{position:absolute;overflow:visible;pointer-events:none;}
+.hero-callouts{display:flex;gap:8px;margin-top:34px;flex-wrap:wrap;}
+.tag{font-family:var(--mono);font-size:12px;padding:6px 12px;border:1px solid var(--rule);border-radius:2px;color:var(--ink-soft);background:rgba(255,255,255,.25);}
+
+/* ───────────── Section frame ───────────── */
+section{padding:84px 0;}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:46px;border-bottom:1px solid var(--rule);padding-bottom:16px;}
+.sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(30px,4vw,46px);letter-spacing:-.01em;}
+.sec-head .idx{font-family:var(--mono);font-size:13px;color:var(--cyan-deep);}
+
+/* ───────────── About ───────────── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;}
+.about-grid p{font-size:21px;margin-bottom:20px;}
+.about-grid p:last-child{margin-bottom:0;}
+.cred-list{list-style:none;font-family:var(--mono);font-size:14px;}
+.cred-list li{display:grid;grid-template-columns:84px 1fr;gap:16px;padding:14px 0;border-bottom:1px dashed var(--rule);}
+.cred-list li span{color:var(--cyan-deep);}
+.cred-list li:last-child{border-bottom:none;}
+
+/* ───────────── Work / logbook entries ───────────── */
+.logbook{display:flex;flex-direction:column;}
+.entry{
+  display:grid;grid-template-columns:130px 1fr auto;gap:28px;align-items:start;
+  padding:26px 0;border-top:1px solid var(--rule);transition:background .2s;
+}
+.logbook .entry:last-child{border-bottom:1px solid var(--rule);}
+.entry:hover{background:rgba(43,110,127,.05);}
+.entry-meta{font-family:var(--mono);font-size:12px;color:var(--ink-soft);line-height:1.8;}
+.entry-meta .loc{color:var(--cyan-deep);display:block;}
+.entry-body h3{font-family:var(--display);font-weight:600;font-size:24px;margin-bottom:6px;}
+.entry-body p{font-size:17px;color:var(--ink-soft);max-width:62ch;}
+.entry-status{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:2px;white-space:nowrap;}
+.st-live{color:var(--orange);border:1px solid var(--orange);}
+.st-wip{color:var(--ink-soft);border:1px dashed var(--rule);}
+.entry.has-link{cursor:pointer;}
+.entry.has-link .entry-body h3::after{content:" ↗";color:var(--cyan);font-family:var(--mono);font-size:16px;}
+
+/* ───────────── Services ───────────── */
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.svc{background:var(--paper);padding:30px 26px;}
+.svc .n{font-family:var(--mono);font-size:12px;color:var(--cyan);}
+.svc h3{font-family:var(--display);font-weight:600;font-size:21px;margin:14px 0 10px;}
+.svc p{font-size:16px;color:var(--ink-soft);}
+
+/* ───────────── Contact ───────────── */
+.contact{padding-bottom:40px;}
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;}
+.contact h2{font-family:var(--display);font-weight:600;font-size:clamp(34px,5vw,58px);line-height:1;margin-bottom:22px;letter-spacing:-.01em;}
+.contact h2 em{font-style:italic;color:var(--cyan);}
+.contact-lede{font-size:21px;color:var(--ink-soft);max-width:34ch;margin-bottom:30px;}
+.contact-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{
+  font-family:var(--mono);font-size:14px;letter-spacing:.02em;
+  padding:14px 22px;border-radius:2px;border:1px solid var(--ink);
+  display:inline-flex;align-items:center;gap:9px;transition:all .2s;
+}
+.btn-primary{background:var(--ink);color:var(--paper);}
+.btn-primary:hover{background:var(--cyan-deep);border-color:var(--cyan-deep);}
+.btn-ghost:hover{background:var(--ink);color:var(--paper);}
+.card-block{
+  border:1px solid var(--rule);background:rgba(255,255,255,.35);
+  border-radius:3px;padding:28px;font-family:var(--mono);font-size:14px;line-height:2;
+}
+.card-block .k{color:var(--cyan-deep);display:inline-block;width:88px;}
+.card-block a:hover{color:var(--orange);}
+
+footer{border-top:1px solid var(--rule);padding:26px 0;}
+.foot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--ink-soft);flex-wrap:wrap;gap:10px;}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
+.reveal.in{opacity:1;transform:none;}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
+
+/* ───────────── Responsive ───────────── */
+@media(max-width:860px){
+  .nav-links{position:fixed;inset:0 0 0 auto;width:74%;max-width:320px;background:var(--paper-2);
+    flex-direction:column;justify-content:center;padding:40px;gap:22px;font-size:16px;
+    transform:translateX(100%);transition:transform .3s;border-left:1px solid var(--rule);}
+  .nav-links.open{transform:none;}
+  .nav-toggle{display:block;z-index:101;}
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
+  .hero-portrait{max-width:300px;margin-top:20px;}
+  .svc-grid{grid-template-columns:1fr;}
+  .entry{grid-template-columns:1fr;gap:8px;}
+  .entry-status{justify-self:start;}
+  body{font-size:18px;background-size:22px 22px;}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a class="nav-logo" href="#top">abhijeet<span>.rai</span></a>
+  <div class="nav-links" id="navlinks">
+    <a href="#about">about</a>
+    <a href="#work">work</a>
+    <a href="#services">what i do</a>
+    <a href="#contact">contact</a>
+  </div>
+  <button class="nav-toggle" id="navtoggle" aria-label="Menu">≡</button>
+</nav>
+
+<header class="hero wrap" id="top">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow hero-loc">Augsburg · DACH region</div>
+      <h1>Abhijeet&nbsp;Rai —<br>I build <em>spatial</em> &amp; <em>AI</em> systems for the factory floor.</h1>
+      <p class="hero-lede">Software engineer working where <b>semantic data</b> meets the <b>visual interface</b>: HoloLens, Meta Quest, digital twins.</p>
+      <p class="hero-sub">XR / spatial computing · industrial AI &amp; LLM integration<br>aerospace · rail · automotive · regulated domains</p>
+      <div class="hero-callouts">
+        <span class="tag">~4 yrs XR</span>
+        <span class="tag">~3 yrs embedded</span>
+        <span class="tag">HoloLens 2 · Quest 3</span>
+        <span class="tag">LangGraph · FastAPI</span>
+      </div>
+    </div>
+    <div class="hero-portrait reveal">
+      <span class="annot tl">// engineer, not a demo reel</span>
+      <img src="assets/img/portrait.jpg" alt="Abhijeet Rai">
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="about" class="wrap">
+  <div class="sec-head"><h2>About</h2><span class="idx">// 01 — background</span></div>
+  <div class="about-grid">
+    <div>
+      <p>I spend my time at an unusual seam: the <b>semantic data models</b> that describe a machine, and the <b>spatial interfaces</b> a technician actually uses to see it. Most people work one side of that line. I work the bridge.</p>
+      <p class="reveal">Built real AR systems for aerospace and rail clients at Accenture — CAD overlays, on-site interactive experiences. My Master's thesis at Fraunhofer IGCV tackled mixed reality for collaborative factory planning. Lately I've been wiring LLMs into that world: local, DSGVO-aware, on-premise where the data can't leave the building.</p>
+    </div>
+    <ul class="cred-list reveal">
+      <li><span>XR</span><div>~4 yrs spatial computing — HoloLens 2, Unity, Unreal, Meta Quest 3</div></li>
+      <li><span>Embedded</span><div>~3 yrs automotive at Magneti Marelli — safety-critical C/C++, ISO 26262 / AUTOSAR</div></li>
+      <li><span>AI</span><div>LLM integration — LangGraph, Claude API, FastAPI, Whisper, pgvector</div></li>
+      <li><span>Edu</span><div>M.Sc. Automotive Software Engineering (TU Chemnitz)</div></li>
+      <li><span>Based</span><div>Augsburg, Germany — available across DACH</div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="work" class="wrap">
+  <div class="sec-head"><h2>Selected work</h2><span class="idx">// 02 — the logbook</span></div>
+  <div class="logbook">
+    <article class="entry reveal">
+      <div class="entry-meta"><span class="loc">Munich, DE</span>Accenture · 2021–25<br>Senior Engineer, Digitalization</div>
+      <div class="entry-body">
+        <h3>CAD-overlay AR for rail inspection</h3>
+        <p>HoloLens 2 experience overlaying engineering CAD onto physical rolling stock — registering the digital twin to what the technician sees, built with Unity, Unreal and Microsoft MRTK.</p>
+      </div>
+      <span class="entry-status st-wip">write-up in progress</span>
+    </article>
+    <article class="entry reveal">
+      <div class="entry-meta"><span class="loc">DE / intl.</span>Accenture · 2021–25<br>aerospace client</div>
+      <div class="entry-body">
+        <h3>Real-time data into HoloLens applications</h3>
+        <p>Integrating live sensor and machine-control data into dynamic HoloLens apps, and an interactive AR experience for an aerospace client — public-facing, hands-on.</p>
+      </div>
+      <span class="entry-status st-wip">write-up in progress</span>
+    </article>
+    <article class="entry reveal">
+      <div class="entry-meta"><span class="loc">Augsburg, DE</span>Fraunhofer IGCV · 2021<br>M.Sc. thesis</div>
+      <div class="entry-body">
+        <h3>Mixed reality for collaborative factory planning</h3>
+        <p>A shared HoloLens workspace for laying out factory floors — gesture control, collision detection, live layout editing, working with BIM and IFC data standards. Evaluated with industry partners.</p>
+      </div>
+      <span class="entry-status st-wip">write-up in progress</span>
+    </article>
+    <article class="entry reveal">
+      <div class="entry-meta"><span class="loc">on-premise</span>own project<br>AI · regulated</div>
+      <div class="entry-body">
+        <h3>ArztAssistent — clinical documentation AI</h3>
+        <p>Turns dictation and consultation notes into structured medical documents. Claude API + Python, structured output, DSGVO-compliant data handling — practical AI integration for a regulated field.</p>
+      </div>
+      <span class="entry-status st-wip">write-up in progress</span>
+    </article>
+  </div>
+</section>
+
+<section id="services" class="wrap">
+  <div class="sec-head"><h2>What I do</h2><span class="idx">// 03 — engagements</span></div>
+  <div class="svc-grid">
+    <div class="svc reveal"><div class="n">AR / MR</div><h3>Spatial interfaces for industry</h3><p>Assembly guidance, remote service, training and inspection on HoloLens 2 and Meta Quest 3 — registered to real equipment, not a tech demo.</p></div>
+    <div class="svc reveal"><div class="n">Digital twins</div><h3>Twin ↔ visual sync</h3><p>Connecting semantic / sensor data models to the spatial layer, so the twin and the thing on the floor actually agree.</p></div>
+    <div class="svc reveal"><div class="n">AI integration</div><h3>LLMs where data can't leave</h3><p>On-premise, DSGVO-aware LLM and agent pipelines for regulated environments — local inference, share outcomes not raw data.</p></div>
+  </div>
+</section>
+
+<section id="contact" class="wrap contact">
+  <div class="sec-head"><h2>Get in touch</h2><span class="idx">// 04 — contact</span></div>
+  <div class="contact-grid">
+    <div>
+      <h2>Let's talk about the <em>seam</em>.</h2>
+      <p class="contact-lede">If you're a manufacturer, research institute, or service team working on XR or industrial AI in the DACH region — I'd like to hear what you're stuck on.</p>
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="mailto:abhijeet.rai101@gmail.com">✉ email me</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/abhijeet-rai-101" target="_blank" rel="noopener">in · linkedin</a>
+        <a class="btn btn-ghost" href="card.html">▢ digital card</a>
+      </div>
+    </div>
+    <div class="card-block reveal">
+      <div><span class="k">name</span> Abhijeet Rai</div>
+      <div><span class="k">role</span> Software Engineer · XR &amp; Industrial AI</div>
+      <div><span class="k">where</span> Augsburg, DE — DACH</div>
+      <div><span class="k">email</span> <a href="mailto:abhijeet.rai101@gmail.com">abhijeet.rai101@gmail.com</a></div>
+      <div><span class="k">linkedin</span> <a href="https://www.linkedin.com/in/abhijeet-rai-101" target="_blank" rel="noopener">/in/abhijeet-rai-101</a></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Abhijeet Rai — Augsburg, DE</span>
+    <span style="display:flex;gap:18px"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></span>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+const tog=document.getElementById('navtoggle'),links=document.getElementById('navlinks');
+tog.addEventListener('click',()=>links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
