@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,8 @@
 <!--=============== FAVICON ===============-->
 <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon">
 
-<title>Abhijeet Rai — XR, Digital Twins & AI for Industry</title>
-<meta name="description" content="Software engineer building AR/VR and AI systems for industrial and regulated environments. Aerospace, rail, automotive, clinical.">
+<title>Abhijeet Rai — XR, Digitale Zwillinge &amp; KI für die Industrie</title>
+<meta name="description" content="Software-Ingenieur, der AR/VR- und KI-Systeme für industrielle und regulierte Umgebungen entwickelt. Luftfahrt, Bahn, Automobil, klinisch.">
 <link rel="stylesheet" href="assets/fonts.css">
 <style>
 /* ───────────── Tokens ───────────── */
@@ -17,19 +17,12 @@
   --paper-2:#EBE4D6;
   --ink:#1A1714;
   --ink-soft:#5B544B;
-  --cyan:#2B6E7F;      /* blueprint cyan — technical, not AI-blue */
+  --cyan:#2B6E7F;
   --cyan-deep:#1E5260;
-  --orange:#C8502A;    /* annotation orange — live/interactive only */
+  --orange:#C8502A;
   --grid:rgba(43,110,127,0.09);
   --rule:#C9C0AE;
-
-  /* ─── Band shade — pick ONE by uncommenting. All match the paper/blueprint theme. ─── */
-  --band-tint:rgba(199,184,150,0.34);   /* A · warm sand (current default) */
-  /* --band-tint:rgba(43,110,127,0.07); */   /* B · blueprint cyan wash — matches the site accent */
-  /* --band-tint:rgba(43,110,127,0.11); */   /* C · blueprint cyan, a touch deeper */
-  /* --band-tint:rgba(30,82,96,0.06);   */   /* D · cool deep-teal wash */
-  /* --band-tint:rgba(90,84,75,0.08);   */   /* E · neutral graphite — quietest option */
-  /* --band-tint:rgba(200,80,42,0.05);  */   /* F · faint terracotta — warmest, ties to the orange accent */
+  --band-tint:rgba(199,184,150,0.34);
   --display:'Fraunces',Georgia,serif;
   --body:'Newsreader',Georgia,serif;
   --mono:'JetBrains Mono',ui-monospace,monospace;
@@ -40,7 +33,6 @@ body{
   font-family:var(--body);
   color:var(--ink);
   background-color:var(--paper);
-  /* grid-paper signature */
   background-image:
     linear-gradient(var(--grid) 1px,transparent 1px),
     linear-gradient(90deg,var(--grid) 1px,transparent 1px);
@@ -55,10 +47,6 @@ img{max-width:100%;display:block;}
 ::selection{background:var(--orange);color:var(--paper);}
 
 .wrap{max-width:1140px;margin:0 auto;padding-left:32px;padding-right:32px;}
-/* alternating section bands — visually separate each segment (Filip's "shade each row").
-   The band is a translucent tint only; it has NO grid of its own so the single body grid
-   shows through underneath and stays aligned. A hairline rule on the top/bottom edge makes
-   the tint boundary read as a deliberate line, regardless of where it falls on the grid. */
 .band{position:relative;}
 .band::before{
   content:"";position:absolute;inset:0;z-index:-1;
@@ -92,6 +80,23 @@ nav.scrolled{background:rgba(243,238,227,.92);border-bottom:1px solid var(--rule
 .nav-links a:hover::after{width:100%;}
 .nav-toggle{display:none;font-family:var(--mono);font-size:22px;background:none;border:none;cursor:pointer;}
 
+/* ───────────── Language Switch ───────────── */
+.nav-right{display:flex;align-items:center;gap:14px;}
+.lang-switch{
+  display:inline-flex;align-items:stretch;
+  border:1px solid var(--rule);border-radius:2px;overflow:hidden;
+}
+.lang-btn{
+  background:transparent;border:none;
+  padding:5px 10px;cursor:pointer;
+  color:var(--ink-soft);
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;
+  transition:background .2s,color .2s;line-height:1;
+}
+.lang-btn+.lang-btn{border-left:1px solid var(--rule);}
+.lang-btn.active{background:var(--cyan);color:var(--paper);}
+.lang-btn:hover:not(.active){background:rgba(43,110,127,.1);color:var(--cyan-deep);}
+
 /* ───────────── Hero ───────────── */
 header.hero{padding:170px 32px 100px;position:relative;max-width:1140px;margin:0 auto;}
 .hero-grid{display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center;}
@@ -115,7 +120,6 @@ header.hero{padding:170px 32px 100px;position:relative;max-width:1140px;margin:0
   border:1px solid var(--rule);
   box-shadow:14px 14px 0 -2px var(--paper-2),14px 14px 0 -1px var(--rule);
 }
-/* hand-drawn annotation */
 .annot{position:absolute;font-family:var(--mono);font-size:11px;color:var(--orange);letter-spacing:.04em;white-space:nowrap;}
 .annot.tl{top:-28px;left:6px;transform:rotate(-3deg);}
 .annot svg{position:absolute;overflow:visible;pointer-events:none;}
@@ -222,7 +226,6 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
   .entry-status{justify-self:start;}
   body{font-size:18px;background-size:22px 22px;}
 }
-/* mobile spacing fix — stop hero text kissing the left edge */
 @media(max-width:600px){
   .wrap{padding-left:22px;padding-right:22px;}
   nav{padding:16px 22px;}
@@ -241,30 +244,36 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
 <nav id="nav">
   <a class="nav-logo" href="#top">abhijeet<span>.rai</span></a>
   <div class="nav-links" id="navlinks">
-    <a href="#about">about</a>
-    <a href="#work">work</a>
-    <a href="#services">what i do</a>
-    <a href="#contact">contact</a>
+    <a href="#about" data-i18n="nav-about">über mich</a>
+    <a href="#work" data-i18n="nav-work">projekte</a>
+    <a href="#services" data-i18n="nav-services">leistungen</a>
+    <a href="#contact" data-i18n="nav-contact">kontakt</a>
   </div>
-  <button class="nav-toggle" id="navtoggle" aria-label="Menu">≡</button>
+  <div class="nav-right">
+    <div class="lang-switch" id="langSwitch">
+      <button class="lang-btn active" data-lang="de" aria-label="Deutsch">DE</button>
+      <button class="lang-btn" data-lang="en" aria-label="English">EN</button>
+    </div>
+    <button class="nav-toggle" id="navtoggle" aria-label="Menü">≡</button>
+  </div>
 </nav>
 
 <header class="hero wrap" id="top">
   <div class="hero-grid">
     <div>
-      <div class="eyebrow hero-loc">Augsburg · DACH region</div>
-      <h1>Abhijeet&nbsp;Rai —<br>I build <em>spatial</em> &amp; <em>AI</em> systems for the factory floor.</h1>
-      <p class="hero-lede">Software engineer working where <b>semantic data</b> meets the <b>visual interface</b>: HoloLens, Meta Quest, digital twins.</p>
-      <p class="hero-sub">XR / spatial computing · industrial AI &amp; LLM integration<br>aerospace · rail · automotive · regulated domains</p>
+      <div class="eyebrow hero-loc">Augsburg · DACH-Region</div>
+      <h1 data-i18n="hero-h1">Abhijeet&nbsp;Rai —<br>Ich baue <em>räumliche</em> &amp; <em>KI</em>-Systeme für die Fabrik.</h1>
+      <p class="hero-lede" data-i18n="hero-lede">Software-Ingenieur an der Schnittstelle von <b>semantischen Daten</b> und <b>visuellen Interfaces</b>: HoloLens, Meta Quest, digitale Zwillinge.</p>
+      <p class="hero-sub" data-i18n="hero-sub">XR / räumliches Computing · industrielle KI &amp; LLM-Integration<br>Luftfahrt · Bahn · Automobil · regulierte Bereiche</p>
       <div class="hero-callouts">
-        <span class="tag">~4 yrs XR</span>
-        <span class="tag">~3 yrs embedded</span>
+        <span class="tag">~4 J. XR</span>
+        <span class="tag">~3 J. Embedded</span>
         <span class="tag">HoloLens 2 · Quest 3</span>
         <span class="tag">LangGraph · FastAPI</span>
       </div>
     </div>
     <div class="hero-portrait reveal">
-      <span class="annot tl">// engineer, not a demo reel</span>
+      <span class="annot tl" data-i18n="hero-annot">// Ingenieur, kein Demo-Reel</span>
       <img src="assets/img/portrait.jpg" alt="Abhijeet Rai">
     </div>
   </div>
@@ -273,97 +282,121 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
 <main>
 <section id="about" class="band">
  <div class="wrap">
-  <div class="sec-head"><h2>About</h2><span class="idx">01 / background</span></div>
+  <div class="sec-head">
+    <h2 data-i18n="about-h2">Über mich</h2>
+    <span class="idx" data-i18n="about-idx">01 / Hintergrund</span>
+  </div>
   <div class="about-grid">
     <div>
-      <p>I spend my time at an unusual seam: the <b>semantic data models</b> that describe a machine, and the <b>spatial interfaces</b> a technician actually uses to see it. Most people work one side of that line. I work the bridge.</p>
-      <p class="reveal">Built real AR systems for aerospace and rail clients at Accenture — CAD overlays, on-site interactive experiences. My Master's thesis at Fraunhofer IGCV tackled mixed reality for collaborative factory planning. Lately I've been wiring LLMs into that world: local, DSGVO-aware, on-premise where the data can't leave the building.</p>
+      <p data-i18n="about-p1">Ich arbeite an einem ungewöhnlichen Schnittpunkt: den <b>semantischen Datenmodellen</b>, die eine Maschine beschreiben, und den <b>räumlichen Interfaces</b>, die ein Techniker tatsächlich nutzt. Die meisten Menschen arbeiten auf einer Seite dieser Grenze. Ich baue die Brücke.</p>
+      <p class="reveal" data-i18n="about-p2">Reale AR-Systeme für Luft- und Raumfahrt- und Bahnkunden bei Accenture entwickelt — CAD-Overlays, interaktive Vor-Ort-Erlebnisse. Meine Masterarbeit am Fraunhofer IGCV behandelte Mixed Reality für kollaborative Fabrikplanung. Zuletzt habe ich LLMs in diese Welt integriert: lokal, DSGVO-konform, on-premise, wo die Daten das Gebäude nicht verlassen dürfen.</p>
     </div>
     <ul class="cred-list reveal">
-      <li><span>XR</span><div>~4 yrs spatial computing — HoloLens 2, Unity, Unreal, Meta Quest 3</div></li>
-      <li><span>Embedded</span><div>~3 yrs automotive at Magneti Marelli — safety-critical C/C++, ISO 26262 / AUTOSAR</div></li>
-      <li><span>AI</span><div>LLM integration — LangGraph, Claude API, FastAPI, Whisper, pgvector</div></li>
-      <li><span>Edu</span><div>M.Sc. Automotive Software Engineering (TU Chemnitz)</div></li>
-      <li><span>Based</span><div>Augsburg, Germany — available across DACH</div></li>
+      <li><span>XR</span><div data-i18n="cred-xr">~4 Jahre räumliches Computing — HoloLens 2, Unity, Unreal, Meta Quest 3</div></li>
+      <li><span>Embedded</span><div data-i18n="cred-emb">~3 Jahre Automotive bei Magneti Marelli — sicherheitskritisches C/C++, ISO 26262 / AUTOSAR</div></li>
+      <li><span>KI</span><div data-i18n="cred-ai">LLM-Integration — LangGraph, Claude API, FastAPI, Whisper, pgvector</div></li>
+      <li><span>Studium</span><div data-i18n="cred-edu">M.Sc. Automotive Software Engineering (TU Chemnitz)</div></li>
+      <li><span>Standort</span><div data-i18n="cred-based">Augsburg, Deutschland — verfügbar in der DACH-Region</div></li>
     </ul>
   </div>
  </div>
 </section>
 
 <section id="work" class="wrap">
-  <div class="sec-head"><h2>Selected work</h2><span class="idx">02 / the logbook</span></div>
+  <div class="sec-head">
+    <h2 data-i18n="work-h2">Ausgewählte Projekte</h2>
+    <span class="idx" data-i18n="work-idx">02 / das Logbuch</span>
+  </div>
   <div class="logbook">
     <article class="entry reveal">
-      <div class="entry-meta"><span class="loc">Munich, DE</span><span class="org">Accenture</span> · 2021–25<br>Senior Engineer, Digitalization</div>
+      <div class="entry-meta" data-i18n="e1-meta"><span class="loc">München, DE</span><span class="org">Accenture</span> · 2021–25<br>Senior Engineer, Digitalisierung</div>
       <div class="entry-body">
-        <h3>CAD-overlay AR for rail inspection</h3>
-        <p>HoloLens 2 experience overlaying engineering CAD onto physical rolling stock — registering the digital twin to what the technician sees, built with Unity, Unreal and Microsoft MRTK.</p>
-        <div class="entry-impact"><span>HoloLens 2 · MRTK</span><span>CAD ↔ physical registration</span><span>rail client deployment</span></div>
+        <h3 data-i18n="e1-h3">CAD-Overlay AR für Bahninspektion</h3>
+        <p data-i18n="e1-p">HoloLens 2-Anwendung, die technisches CAD auf physische Schienenfahrzeuge überlagert — Registrierung des digitalen Zwillings mit dem, was der Techniker sieht; entwickelt mit Unity, Unreal und Microsoft MRTK.</p>
+        <div class="entry-impact"><span>HoloLens 2 · MRTK</span><span>CAD ↔ physische Registrierung</span><span>Bahn-Deployment</span></div>
       </div>
-      <span class="entry-status st-wip">write-up in progress</span>
+      <span class="entry-status st-wip" data-i18n="e1-status">Fallstudie in Vorbereitung</span>
     </article>
     <article class="entry reveal">
-      <div class="entry-meta"><span class="loc">DE / intl.</span><span class="org">Accenture</span> · 2021–25<br>aerospace client</div>
+      <div class="entry-meta" data-i18n="e2-meta"><span class="loc">DE / intl.</span><span class="org">Accenture</span> · 2021–25<br>Luft- und Raumfahrtkunde</div>
       <div class="entry-body">
-        <h3>Real-time data into HoloLens applications</h3>
-        <p>Integrating live sensor and machine-control data into dynamic HoloLens apps, and an interactive AR experience for an aerospace client — public-facing, hands-on.</p>
-        <div class="entry-impact"><span>live sensor + control data</span><span>real-time AR pipeline</span><span>public-facing experience</span></div>
+        <h3 data-i18n="e2-h3">Echtzeit-Daten in HoloLens-Anwendungen</h3>
+        <p data-i18n="e2-p">Integration von Live-Sensor- und Maschinensteuerungsdaten in dynamische HoloLens-Apps sowie eine interaktive AR-Erfahrung für einen Luft- und Raumfahrtkunden — öffentlich zugänglich, zum Anfassen.</p>
+        <div class="entry-impact"><span>Live-Sensor- &amp; Steuerdaten</span><span>Echtzeit-AR-Pipeline</span><span>öffentliche Erfahrung</span></div>
       </div>
-      <span class="entry-status st-wip">write-up in progress</span>
+      <span class="entry-status st-wip" data-i18n="e2-status">Fallstudie in Vorbereitung</span>
     </article>
     <article class="entry reveal">
-      <div class="entry-meta"><span class="loc">Augsburg, DE</span><span class="org">Fraunhofer IGCV</span> · 2021<br>M.Sc. thesis</div>
+      <div class="entry-meta" data-i18n="e3-meta"><span class="loc">Augsburg, DE</span><span class="org">Fraunhofer IGCV</span> · 2021<br>M.Sc. Abschlussarbeit</div>
       <div class="entry-body">
-        <h3>Mixed reality for collaborative factory planning</h3>
-        <p>A shared HoloLens workspace for laying out factory floors — gesture control, collision detection, live layout editing, working with BIM and IFC data standards. Evaluated with industry partners.</p>
-        <div class="entry-impact"><span>multi-user shared session</span><span>BIM / IFC standards</span><span>evaluated with industry partners</span></div>
+        <h3 data-i18n="e3-h3">Mixed Reality für kollaborative Fabrikplanung</h3>
+        <p data-i18n="e3-p">Ein gemeinsamer HoloLens-Arbeitsbereich für die Fabrikflächenplanung — Gestensteuerung, Kollisionserkennung, Live-Layout-Bearbeitung, Arbeit mit BIM- und IFC-Datenstandards. Mit Industriepartnern evaluiert.</p>
+        <div class="entry-impact"><span>Multi-User-Session</span><span>BIM / IFC-Standards</span><span>mit Industriepartnern evaluiert</span></div>
       </div>
-      <span class="entry-status st-wip">write-up in progress</span>
+      <span class="entry-status st-wip" data-i18n="e3-status">Fallstudie in Vorbereitung</span>
     </article>
     <article class="entry reveal">
-      <div class="entry-meta"><span class="loc">on-premise</span><span class="org">own project</span><br>AI · regulated</div>
+      <div class="entry-meta" data-i18n="e4-meta"><span class="loc">on-premise</span><span class="org">eigenes Projekt</span><br>KI · reguliert</div>
       <div class="entry-body">
-        <h3>ArztAssistent — clinical documentation AI</h3>
-        <p>Turns dictation and consultation notes into structured medical documents. Claude API + Python, structured output, DSGVO-compliant data handling — practical AI integration for a regulated field.</p>
-        <div class="entry-impact"><span>local Whisper STT + LLM</span><span>no cloud dependency</span><span>DSGVO-compliant</span></div>
+        <h3 data-i18n="e4-h3">ArztAssistent — KI für klinische Dokumentation</h3>
+        <p data-i18n="e4-p">Wandelt Diktate und Konsultationsnotizen in strukturierte medizinische Dokumente um. Claude API + Python, strukturierter Output, DSGVO-konforme Datenverarbeitung — praxisnahe KI-Integration für ein reguliertes Feld.</p>
+        <div class="entry-impact"><span>lokales Whisper STT + LLM</span><span>keine Cloud-Abhängigkeit</span><span>DSGVO-konform</span></div>
       </div>
-      <span class="entry-status st-wip">write-up in progress</span>
+      <span class="entry-status st-wip" data-i18n="e4-status">Fallstudie in Vorbereitung</span>
     </article>
   </div>
 </section>
 
 <section id="services" class="band">
  <div class="wrap">
-  <div class="sec-head"><h2>What I do</h2><span class="idx">03 / engagements</span></div>
+  <div class="sec-head">
+    <h2 data-i18n="svc-h2">Was ich mache</h2>
+    <span class="idx" data-i18n="svc-idx">03 / Leistungen</span>
+  </div>
   <div class="svc-grid">
-    <div class="svc reveal"><div class="n">AR / MR</div><h3>Spatial interfaces for industry</h3><p>Assembly guidance, remote service, training and inspection on HoloLens 2 and Meta Quest 3 — registered to real equipment, not a tech demo.</p></div>
-    <div class="svc reveal"><div class="n">Digital twins</div><h3>Twin ↔ visual sync</h3><p>Connecting semantic / sensor data models to the spatial layer, so the twin and the thing on the floor actually agree.</p></div>
-    <div class="svc reveal"><div class="n">AI integration</div><h3>LLMs where data can't leave</h3><p>On-premise, DSGVO-aware LLM and agent pipelines for regulated environments — local inference, share outcomes not raw data.</p></div>
+    <div class="svc reveal">
+      <div class="n">AR / MR</div>
+      <h3 data-i18n="svc1-h3">Räumliche Interfaces für die Industrie</h3>
+      <p data-i18n="svc1-p">Montageanleitung, Fernwartung, Schulung und Inspektion auf HoloLens 2 und Meta Quest 3 — an realen Geräten ausgerichtet, kein Tech-Demo.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="n" data-i18n="svc2-n">Digitale Zwillinge</div>
+      <h3 data-i18n="svc2-h3">Zwilling ↔ visuelle Synchronisation</h3>
+      <p data-i18n="svc2-p">Verbindung semantischer/Sensordatenmodelle mit der räumlichen Schicht, damit der Zwilling und das Objekt auf dem Boden tatsächlich übereinstimmen.</p>
+    </div>
+    <div class="svc reveal">
+      <div class="n" data-i18n="svc3-n">KI-Integration</div>
+      <h3 data-i18n="svc3-h3">LLMs wo Daten das Gebäude nicht verlassen dürfen</h3>
+      <p data-i18n="svc3-p">On-premise, DSGVO-konforme LLM- und Agenten-Pipelines für regulierte Umgebungen — lokale Inferenz, Ergebnisse teilen, nicht Rohdaten.</p>
+    </div>
   </div>
  </div>
 </section>
 
 <section id="contact" class="wrap contact">
-  <div class="sec-head"><h2>Get in touch</h2><span class="idx">04 / contact</span></div>
+  <div class="sec-head">
+    <h2 data-i18n="contact-head-h2">Kontakt aufnehmen</h2>
+    <span class="idx" data-i18n="contact-idx">04 / Kontakt</span>
+  </div>
   <div class="contact-grid">
     <div>
-      <h2>Let's talk about the <em>seam</em>.</h2>
-      <p class="contact-lede">If you're a manufacturer, research institute, or service team working on XR or industrial AI in the DACH region — I'd like to hear what you're stuck on.</p>
+      <h2 data-i18n="contact-h2">Sprechen wir über die <em>Schnittstelle</em>.</h2>
+      <p class="contact-lede" data-i18n="contact-lede">Wenn Sie Hersteller, Forschungsinstitut oder Serviceteam sind und an XR oder industrieller KI in der DACH-Region arbeiten — ich höre gerne, womit Sie feststecken.</p>
       <div class="contact-actions">
-        <a class="btn btn-primary" href="mailto:abhijeet.rai101@gmail.com">✉ email me</a>
+        <a class="btn btn-primary" href="mailto:abhijeet.rai101@gmail.com" data-i18n="btn-email">✉ E-Mail schreiben</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/abhijeet-rai-101" target="_blank" rel="noopener">in · linkedin</a>
-        <a class="btn btn-ghost" href="card.html">▢ digital card</a>
+        <a class="btn btn-ghost" href="card.html" data-i18n="btn-card">▢ digitale Visitenkarte</a>
       </div>
     </div>
     <div class="card-block reveal">
       <div><span class="k">name</span> Abhijeet Rai</div>
-      <div><span class="k">role</span> Software Engineer · XR &amp; Industrial AI</div>
-      <div><span class="k">where</span> Augsburg, DE — DACH</div>
+      <div><span class="k" data-i18n="card-k-role-label">rolle</span> <span data-i18n="card-k-role">Software-Ingenieur · XR &amp; Industrie-KI</span></div>
+      <div><span class="k" data-i18n="card-k-where-label">standort</span> Augsburg, DE — DACH</div>
       <div><span class="k">email</span> <a href="mailto:abhijeet.rai101@gmail.com">abhijeet.rai101@gmail.com</a></div>
       <div><span class="k">linkedin</span> <a href="https://www.linkedin.com/in/abhijeet-rai-101" target="_blank" rel="noopener">/in/abhijeet-rai-101</a></div>
       <div class="card-qr">
-        <img src="assets/img/qr-code-card.png" alt="QR code linking to my digital contact card">
-        <span class="card-qr-cap">scan for my <a href="card.html">digital card</a></span>
+        <img src="assets/img/qr-code-card.png" alt="QR-Code zur digitalen Visitenkarte">
+        <span class="card-qr-cap" data-i18n="card-qr-cap">QR-Code für meine <a href="card.html">digitale Visitenkarte</a> scannen</span>
       </div>
     </div>
   </div>
@@ -378,13 +411,165 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
 </footer>
 
 <script>
-const nav=document.getElementById('nav');
-addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
-const tog=document.getElementById('navtoggle'),links=document.getElementById('navlinks');
-tog.addEventListener('click',()=>links.classList.toggle('open'));
-links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
-const io=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const T = {
+  de: {
+    'page-title': 'Abhijeet Rai — XR, Digitale Zwillinge & KI für die Industrie',
+    'page-desc': 'Software-Ingenieur, der AR/VR- und KI-Systeme für industrielle und regulierte Umgebungen entwickelt. Luftfahrt, Bahn, Automobil, klinisch.',
+    'nav-about': 'über mich',
+    'nav-work': 'projekte',
+    'nav-services': 'leistungen',
+    'nav-contact': 'kontakt',
+    'hero-h1': 'Abhijeet Rai —<br>Ich baue <em>räumliche</em> &amp; <em>KI</em>-Systeme für die Fabrik.',
+    'hero-lede': 'Software-Ingenieur an der Schnittstelle von <b>semantischen Daten</b> und <b>visuellen Interfaces</b>: HoloLens, Meta Quest, digitale Zwillinge.',
+    'hero-sub': 'XR / räumliches Computing · industrielle KI &amp; LLM-Integration<br>Luftfahrt · Bahn · Automobil · regulierte Bereiche',
+    'hero-annot': '// Ingenieur, kein Demo-Reel',
+    'about-h2': 'Über mich',
+    'about-idx': '01 / Hintergrund',
+    'about-p1': 'Ich arbeite an einem ungewöhnlichen Schnittpunkt: den <b>semantischen Datenmodellen</b>, die eine Maschine beschreiben, und den <b>räumlichen Interfaces</b>, die ein Techniker tatsächlich nutzt. Die meisten Menschen arbeiten auf einer Seite dieser Grenze. Ich baue die Brücke.',
+    'about-p2': 'Reale AR-Systeme für Luft- und Raumfahrt- und Bahnkunden bei Accenture entwickelt — CAD-Overlays, interaktive Vor-Ort-Erlebnisse. Meine Masterarbeit am Fraunhofer IGCV behandelte Mixed Reality für kollaborative Fabrikplanung. Zuletzt habe ich LLMs in diese Welt integriert: lokal, DSGVO-konform, on-premise, wo die Daten das Gebäude nicht verlassen dürfen.',
+    'cred-xr': '~4 Jahre räumliches Computing — HoloLens 2, Unity, Unreal, Meta Quest 3',
+    'cred-emb': '~3 Jahre Automotive bei Magneti Marelli — sicherheitskritisches C/C++, ISO 26262 / AUTOSAR',
+    'cred-ai': 'LLM-Integration — LangGraph, Claude API, FastAPI, Whisper, pgvector',
+    'cred-edu': 'M.Sc. Automotive Software Engineering (TU Chemnitz)',
+    'cred-based': 'Augsburg, Deutschland — verfügbar in der DACH-Region',
+    'work-h2': 'Ausgewählte Projekte',
+    'work-idx': '02 / das Logbuch',
+    'e1-meta': '<span class="loc">München, DE</span><span class="org">Accenture</span> · 2021–25<br>Senior Engineer, Digitalisierung',
+    'e1-h3': 'CAD-Overlay AR für Bahninspektion',
+    'e1-p': 'HoloLens 2-Anwendung, die technisches CAD auf physische Schienenfahrzeuge überlagert — Registrierung des digitalen Zwillings mit dem, was der Techniker sieht; entwickelt mit Unity, Unreal und Microsoft MRTK.',
+    'e1-status': 'Fallstudie in Vorbereitung',
+    'e2-meta': '<span class="loc">DE / intl.</span><span class="org">Accenture</span> · 2021–25<br>Luft- und Raumfahrtkunde',
+    'e2-h3': 'Echtzeit-Daten in HoloLens-Anwendungen',
+    'e2-p': 'Integration von Live-Sensor- und Maschinensteuerungsdaten in dynamische HoloLens-Apps sowie eine interaktive AR-Erfahrung für einen Luft- und Raumfahrtkunden — öffentlich zugänglich, zum Anfassen.',
+    'e2-status': 'Fallstudie in Vorbereitung',
+    'e3-meta': '<span class="loc">Augsburg, DE</span><span class="org">Fraunhofer IGCV</span> · 2021<br>M.Sc. Abschlussarbeit',
+    'e3-h3': 'Mixed Reality für kollaborative Fabrikplanung',
+    'e3-p': 'Ein gemeinsamer HoloLens-Arbeitsbereich für die Fabrikflächenplanung — Gestensteuerung, Kollisionserkennung, Live-Layout-Bearbeitung, Arbeit mit BIM- und IFC-Datenstandards. Mit Industriepartnern evaluiert.',
+    'e3-status': 'Fallstudie in Vorbereitung',
+    'e4-meta': '<span class="loc">on-premise</span><span class="org">eigenes Projekt</span><br>KI · reguliert',
+    'e4-h3': 'ArztAssistent — KI für klinische Dokumentation',
+    'e4-p': 'Wandelt Diktate und Konsultationsnotizen in strukturierte medizinische Dokumente um. Claude API + Python, strukturierter Output, DSGVO-konforme Datenverarbeitung — praxisnahe KI-Integration für ein reguliertes Feld.',
+    'e4-status': 'Fallstudie in Vorbereitung',
+    'svc-h2': 'Was ich mache',
+    'svc-idx': '03 / Leistungen',
+    'svc1-h3': 'Räumliche Interfaces für die Industrie',
+    'svc1-p': 'Montageanleitung, Fernwartung, Schulung und Inspektion auf HoloLens 2 und Meta Quest 3 — an realen Geräten ausgerichtet, kein Tech-Demo.',
+    'svc2-n': 'Digitale Zwillinge',
+    'svc2-h3': 'Zwilling ↔ visuelle Synchronisation',
+    'svc2-p': 'Verbindung semantischer/Sensordatenmodelle mit der räumlichen Schicht, damit der Zwilling und das Objekt auf dem Boden tatsächlich übereinstimmen.',
+    'svc3-n': 'KI-Integration',
+    'svc3-h3': 'LLMs wo Daten das Gebäude nicht verlassen dürfen',
+    'svc3-p': 'On-premise, DSGVO-konforme LLM- und Agenten-Pipelines für regulierte Umgebungen — lokale Inferenz, Ergebnisse teilen, nicht Rohdaten.',
+    'contact-head-h2': 'Kontakt aufnehmen',
+    'contact-idx': '04 / Kontakt',
+    'contact-h2': 'Sprechen wir über die <em>Schnittstelle</em>.',
+    'contact-lede': 'Wenn Sie Hersteller, Forschungsinstitut oder Serviceteam sind und an XR oder industrieller KI in der DACH-Region arbeiten — ich höre gerne, womit Sie feststecken.',
+    'btn-email': '✉ E-Mail schreiben',
+    'btn-card': '▢ digitale Visitenkarte',
+    'card-k-role-label': 'rolle',
+    'card-k-role': 'Software-Ingenieur · XR &amp; Industrie-KI',
+    'card-k-where-label': 'standort',
+    'card-qr-cap': 'QR-Code für meine <a href="card.html">digitale Visitenkarte</a> scannen',
+  },
+  en: {
+    'page-title': 'Abhijeet Rai — XR, Digital Twins & AI for Industry',
+    'page-desc': 'Software engineer building AR/VR and AI systems for industrial and regulated environments. Aerospace, rail, automotive, clinical.',
+    'nav-about': 'about',
+    'nav-work': 'work',
+    'nav-services': 'what i do',
+    'nav-contact': 'contact',
+    'hero-h1': 'Abhijeet Rai —<br>I build <em>spatial</em> &amp; <em>AI</em> systems for the factory floor.',
+    'hero-lede': 'Software engineer working where <b>semantic data</b> meets the <b>visual interface</b>: HoloLens, Meta Quest, digital twins.',
+    'hero-sub': 'XR / spatial computing · industrial AI &amp; LLM integration<br>aerospace · rail · automotive · regulated domains',
+    'hero-annot': '// engineer, not a demo reel',
+    'about-h2': 'About',
+    'about-idx': '01 / background',
+    'about-p1': 'I spend my time at an unusual seam: the <b>semantic data models</b> that describe a machine, and the <b>spatial interfaces</b> a technician actually uses to see it. Most people work one side of that line. I work the bridge.',
+    'about-p2': "Built real AR systems for aerospace and rail clients at Accenture — CAD overlays, on-site interactive experiences. My Master's thesis at Fraunhofer IGCV tackled mixed reality for collaborative factory planning. Lately I've been wiring LLMs into that world: local, DSGVO-aware, on-premise where the data can't leave the building.",
+    'cred-xr': '~4 yrs spatial computing — HoloLens 2, Unity, Unreal, Meta Quest 3',
+    'cred-emb': '~3 yrs automotive at Magneti Marelli — safety-critical C/C++, ISO 26262 / AUTOSAR',
+    'cred-ai': 'LLM integration — LangGraph, Claude API, FastAPI, Whisper, pgvector',
+    'cred-edu': 'M.Sc. Automotive Software Engineering (TU Chemnitz)',
+    'cred-based': 'Augsburg, Germany — available across DACH',
+    'work-h2': 'Selected work',
+    'work-idx': '02 / the logbook',
+    'e1-meta': '<span class="loc">Munich, DE</span><span class="org">Accenture</span> · 2021–25<br>Senior Engineer, Digitalization',
+    'e1-h3': 'CAD-overlay AR for rail inspection',
+    'e1-p': 'HoloLens 2 experience overlaying engineering CAD onto physical rolling stock — registering the digital twin to what the technician sees, built with Unity, Unreal and Microsoft MRTK.',
+    'e1-status': 'write-up in progress',
+    'e2-meta': '<span class="loc">DE / intl.</span><span class="org">Accenture</span> · 2021–25<br>aerospace client',
+    'e2-h3': 'Real-time data into HoloLens applications',
+    'e2-p': 'Integrating live sensor and machine-control data into dynamic HoloLens apps, and an interactive AR experience for an aerospace client — public-facing, hands-on.',
+    'e2-status': 'write-up in progress',
+    'e3-meta': '<span class="loc">Augsburg, DE</span><span class="org">Fraunhofer IGCV</span> · 2021<br>M.Sc. thesis',
+    'e3-h3': 'Mixed reality for collaborative factory planning',
+    'e3-p': 'A shared HoloLens workspace for laying out factory floors — gesture control, collision detection, live layout editing, working with BIM and IFC data standards. Evaluated with industry partners.',
+    'e3-status': 'write-up in progress',
+    'e4-meta': '<span class="loc">on-premise</span><span class="org">own project</span><br>AI · regulated',
+    'e4-h3': 'ArztAssistent — clinical documentation AI',
+    'e4-p': 'Turns dictation and consultation notes into structured medical documents. Claude API + Python, structured output, DSGVO-compliant data handling — practical AI integration for a regulated field.',
+    'e4-status': 'write-up in progress',
+    'svc-h2': 'What I do',
+    'svc-idx': '03 / engagements',
+    'svc1-h3': 'Spatial interfaces for industry',
+    'svc1-p': 'Assembly guidance, remote service, training and inspection on HoloLens 2 and Meta Quest 3 — registered to real equipment, not a tech demo.',
+    'svc2-n': 'Digital twins',
+    'svc2-h3': 'Twin ↔ visual sync',
+    'svc2-p': "Connecting semantic / sensor data models to the spatial layer, so the twin and the thing on the floor actually agree.",
+    'svc3-n': 'AI integration',
+    'svc3-h3': "LLMs where data can't leave",
+    'svc3-p': 'On-premise, DSGVO-aware LLM and agent pipelines for regulated environments — local inference, share outcomes not raw data.',
+    'contact-head-h2': 'Get in touch',
+    'contact-idx': '04 / contact',
+    'contact-h2': "Let's talk about the <em>seam</em>.",
+    'contact-lede': "If you're a manufacturer, research institute, or service team working on XR or industrial AI in the DACH region — I'd like to hear what you're stuck on.",
+    'btn-email': '✉ email me',
+    'btn-card': '▢ digital card',
+    'card-k-role-label': 'role',
+    'card-k-role': 'Software Engineer · XR &amp; Industrial AI',
+    'card-k-where-label': 'where',
+    'card-qr-cap': 'scan for my <a href="card.html">digital card</a>',
+  }
+};
+
+function setLang(l) {
+  document.documentElement.lang = l;
+  localStorage.setItem('lang', l);
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (T[l][key] !== undefined) el.innerHTML = T[l][key];
+  });
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === l);
+  });
+  document.title = T[l]['page-title'];
+  const metaDesc = document.querySelector('meta[name="description"]');
+  if (metaDesc) metaDesc.content = T[l]['page-desc'];
+}
+
+// Init language
+const savedLang = localStorage.getItem('lang') || 'de';
+setLang(savedLang);
+
+// Lang button listeners
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => setLang(btn.dataset.lang));
+});
+
+// Nav scroll
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 40));
+
+// Mobile menu
+const tog = document.getElementById('navtoggle'), links = document.getElementById('navlinks');
+tog.addEventListener('click', () => links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+// Reveal on scroll
+const io = new IntersectionObserver(e => e.forEach(x => {
+  if (x.isIntersecting) { x.target.classList.add('in'); io.unobserve(x.target); }
+}), { threshold: .12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
