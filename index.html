@@ -266,8 +266,8 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <p class="hero-lede" data-i18n="hero-lede">Software-Ingenieur an der Schnittstelle von <b>semantischen Daten</b> und <b>visuellen Interfaces</b>: HoloLens, Meta Quest, digitale Zwillinge.</p>
       <p class="hero-sub" data-i18n="hero-sub">XR / räumliches Computing · industrielle KI &amp; LLM-Integration<br>Luftfahrt · Bahn · Automobil · regulierte Bereiche</p>
       <div class="hero-callouts">
-        <span class="tag">~4 J. XR</span>
-        <span class="tag">~3 J. Embedded</span>
+        <span class="tag" data-i18n="tag-xr">~4 J. XR</span>
+        <span class="tag" data-i18n="tag-emb">~3 J. Embedded</span>
         <span class="tag">HoloLens 2 · Quest 3</span>
         <span class="tag">LangGraph · FastAPI</span>
       </div>
@@ -294,9 +294,9 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
     <ul class="cred-list reveal">
       <li><span>XR</span><div data-i18n="cred-xr">~4 Jahre räumliches Computing — HoloLens 2, Unity, Unreal, Meta Quest 3</div></li>
       <li><span>Embedded</span><div data-i18n="cred-emb">~3 Jahre Automotive bei Magneti Marelli — sicherheitskritisches C/C++, ISO 26262 / AUTOSAR</div></li>
-      <li><span>KI</span><div data-i18n="cred-ai">LLM-Integration — LangGraph, Claude API, FastAPI, Whisper, pgvector</div></li>
-      <li><span>Studium</span><div data-i18n="cred-edu">M.Sc. Automotive Software Engineering (TU Chemnitz)</div></li>
-      <li><span>Standort</span><div data-i18n="cred-based">Augsburg, Deutschland — verfügbar in der DACH-Region</div></li>
+      <li><span data-i18n="cred-label-ki">KI</span><div data-i18n="cred-ai">LLM-Integration — LangGraph, Claude API, FastAPI, Whisper, pgvector</div></li>
+      <li><span data-i18n="cred-label-edu">Studium</span><div data-i18n="cred-edu">M.Sc. Automotive Software Engineering (TU Chemnitz)</div></li>
+      <li><span data-i18n="cred-label-loc">Standort</span><div data-i18n="cred-based">Augsburg, Deutschland — verfügbar in der DACH-Region</div></li>
     </ul>
   </div>
  </div>
@@ -313,7 +313,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <div class="entry-body">
         <h3 data-i18n="e1-h3">CAD-Overlay AR für Bahninspektion</h3>
         <p data-i18n="e1-p">HoloLens 2-Anwendung, die technisches CAD auf physische Schienenfahrzeuge überlagert — Registrierung des digitalen Zwillings mit dem, was der Techniker sieht; entwickelt mit Unity, Unreal und Microsoft MRTK.</p>
-        <div class="entry-impact"><span>HoloLens 2 · MRTK</span><span>CAD ↔ physische Registrierung</span><span>Bahn-Deployment</span></div>
+        <div class="entry-impact" data-i18n="e1-impact"><span>HoloLens 2 · MRTK</span><span>CAD ↔ physische Registrierung</span><span>Bahn-Deployment</span></div>
       </div>
     </article>
     <article class="entry reveal">
@@ -321,7 +321,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <div class="entry-body">
         <h3 data-i18n="e2-h3">Echtzeit-Daten in HoloLens-Anwendungen</h3>
         <p data-i18n="e2-p">Integration von Live-Sensor- und Maschinensteuerungsdaten in dynamische HoloLens-Apps sowie eine interaktive AR-Erfahrung für einen Luft- und Raumfahrtkunden — öffentlich zugänglich, zum Anfassen.</p>
-        <div class="entry-impact"><span>Live-Sensor- &amp; Steuerdaten</span><span>Echtzeit-AR-Pipeline</span><span>öffentliche Erfahrung</span></div>
+        <div class="entry-impact" data-i18n="e2-impact"><span>Live-Sensor- &amp; Steuerdaten</span><span>Echtzeit-AR-Pipeline</span><span>öffentliche Erfahrung</span></div>
       </div>
     </article>
     <article class="entry reveal">
@@ -329,7 +329,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <div class="entry-body">
         <h3 data-i18n="e3-h3">Mixed Reality für kollaborative Fabrikplanung</h3>
         <p data-i18n="e3-p">Ein gemeinsamer HoloLens-Arbeitsbereich für die Fabrikflächenplanung — Gestensteuerung, Kollisionserkennung, Live-Layout-Bearbeitung, Arbeit mit BIM- und IFC-Datenstandards. Mit Industriepartnern evaluiert.</p>
-        <div class="entry-impact"><span>Multi-User-Session</span><span>BIM / IFC-Standards</span><span>mit Industriepartnern evaluiert</span></div>
+        <div class="entry-impact" data-i18n="e3-impact"><span>Multi-User-Session</span><span>BIM / IFC-Standards</span><span>mit Industriepartnern evaluiert</span></div>
       </div>
     </article>
     <article class="entry reveal">
@@ -337,7 +337,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <div class="entry-body">
         <h3 data-i18n="e4-h3">ArztAssistent — KI für klinische Dokumentation</h3>
         <p data-i18n="e4-p">Wandelt Diktate und Konsultationsnotizen in strukturierte medizinische Dokumente um. Claude API + Python, strukturierter Output, DSGVO-konforme Datenverarbeitung — praxisnahe KI-Integration für ein reguliertes Feld.</p>
-        <div class="entry-impact"><span>lokales Whisper STT + LLM</span><span>keine Cloud-Abhängigkeit</span><span>DSGVO-konform</span></div>
+        <div class="entry-impact" data-i18n="e4-impact"><span>lokales Whisper STT + LLM</span><span>keine Cloud-Abhängigkeit</span><span>DSGVO-konform</span></div>
       </div>
     </article>
   </div>
@@ -419,6 +419,11 @@ const T = {
     'hero-lede': 'Software-Ingenieur an der Schnittstelle von <b>semantischen Daten</b> und <b>visuellen Interfaces</b>: HoloLens, Meta Quest, digitale Zwillinge.',
     'hero-sub': 'XR / räumliches Computing · industrielle KI &amp; LLM-Integration<br>Luftfahrt · Bahn · Automobil · regulierte Bereiche',
     'hero-annot': '// Ingenieur, kein Demo-Reel',
+    'tag-xr': '~4 J. XR',
+    'tag-emb': '~3 J. Embedded',
+    'cred-label-ki': 'KI',
+    'cred-label-edu': 'Studium',
+    'cred-label-loc': 'Standort',
     'about-h2': 'Über mich',
     'about-idx': '01 / Hintergrund',
     'about-p1': 'Ich arbeite an einem ungewöhnlichen Schnittpunkt: den <b>semantischen Datenmodellen</b>, die eine Maschine beschreiben, und den <b>räumlichen Interfaces</b>, die ein Techniker tatsächlich nutzt. Die meisten Menschen arbeiten auf einer Seite dieser Grenze. Ich baue die Brücke.',
@@ -445,7 +450,11 @@ const T = {
     'e4-meta': '<span class="loc">on-premise</span><span class="org">eigenes Projekt</span><br>KI · reguliert',
     'e4-h3': 'ArztAssistent — KI für klinische Dokumentation',
     'e4-p': 'Wandelt Diktate und Konsultationsnotizen in strukturierte medizinische Dokumente um. Claude API + Python, strukturierter Output, DSGVO-konforme Datenverarbeitung — praxisnahe KI-Integration für ein reguliertes Feld.',
-    'e4-status': '',
+    'e4-status': '',,
+    'e1-impact': '<span>HoloLens 2 · MRTK</span><span>CAD ↔ physische Registrierung</span><span>Bahn-Deployment</span>',
+    'e2-impact': '<span>Live-Sensor- &amp; Steuerdaten</span><span>Echtzeit-AR-Pipeline</span><span>öffentliche Erfahrung</span>',
+    'e3-impact': '<span>Multi-User-Session</span><span>BIM / IFC-Standards</span><span>mit Industriepartnern evaluiert</span>',
+    'e4-impact': '<span>lokales Whisper STT + LLM</span><span>keine Cloud-Abhängigkeit</span><span>DSGVO-konform</span>'
     'svc-h2': 'Was ich mache',
     'svc-idx': '03 / Leistungen',
     'svc1-h3': 'Räumliche Interfaces für die Industrie',
@@ -478,6 +487,11 @@ const T = {
     'hero-lede': 'Software engineer working where <b>semantic data</b> meets the <b>visual interface</b>: HoloLens, Meta Quest, digital twins.',
     'hero-sub': 'XR / spatial computing · industrial AI &amp; LLM integration<br>aerospace · rail · automotive · regulated domains',
     'hero-annot': '// engineer, not a demo reel',
+    'tag-xr': '~4 yrs XR',
+    'tag-emb': '~3 yrs embedded',
+    'cred-label-ki': 'AI',
+    'cred-label-edu': 'Edu',
+    'cred-label-loc': 'Based',
     'about-h2': 'About',
     'about-idx': '01 / background',
     'about-p1': 'I spend my time at an unusual seam: the <b>semantic data models</b> that describe a machine, and the <b>spatial interfaces</b> a technician actually uses to see it. Most people work one side of that line. I work the bridge.',
@@ -504,7 +518,11 @@ const T = {
     'e4-meta': '<span class="loc">on-premise</span><span class="org">own project</span><br>AI · regulated',
     'e4-h3': 'ArztAssistent — clinical documentation AI',
     'e4-p': 'Turns dictation and consultation notes into structured medical documents. Claude API + Python, structured output, DSGVO-compliant data handling — practical AI integration for a regulated field.',
-    'e4-status': '',
+    'e4-status': '',,
+    'e1-impact': '<span>HoloLens 2 · MRTK</span><span>CAD ↔ physical registration</span><span>rail deployment</span>',
+    'e2-impact': '<span>live sensor &amp; control data</span><span>real-time AR pipeline</span><span>public-facing experience</span>',
+    'e3-impact': '<span>multi-user shared session</span><span>BIM / IFC standards</span><span>evaluated with industry partners</span>',
+    'e4-impact': '<span>local Whisper STT + LLM</span><span>no cloud dependency</span><span>DSGVO-compliant</span>'
     'svc-h2': 'What I do',
     'svc-idx': '03 / engagements',
     'svc1-h3': 'Spatial interfaces for industry',
