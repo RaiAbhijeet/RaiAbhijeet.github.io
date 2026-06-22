@@ -266,8 +266,8 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <p class="hero-lede" data-i18n="hero-lede">Software-Ingenieur an der Schnittstelle von <b>semantischen Daten</b> und <b>visuellen Interfaces</b>: HoloLens, Meta Quest, digitale Zwillinge.</p>
       <p class="hero-sub" data-i18n="hero-sub">XR / räumliches Computing · industrielle KI &amp; LLM-Integration<br>Luftfahrt · Bahn · Automobil · regulierte Bereiche</p>
       <div class="hero-callouts">
-        <span class="tag">~4 J. XR</span>
-        <span class="tag">~3 J. Embedded</span>
+        <span class="tag" data-i18n="tag-xr">~4 J. XR</span>
+        <span class="tag" data-i18n="tag-emb">~3 J. Embedded</span>
         <span class="tag">HoloLens 2 · Quest 3</span>
         <span class="tag">LangGraph · FastAPI</span>
       </div>
@@ -313,7 +313,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <div class="entry-body">
         <h3 data-i18n="e1-h3">CAD-Overlay AR für Bahninspektion</h3>
         <p data-i18n="e1-p">HoloLens 2-Anwendung, die technisches CAD auf physische Schienenfahrzeuge überlagert — Registrierung des digitalen Zwillings mit dem, was der Techniker sieht; entwickelt mit Unity, Unreal und Microsoft MRTK.</p>
-        <div class="entry-impact"><span>HoloLens 2 · MRTK</span><span>CAD ↔ physische Registrierung</span><span>Bahn-Deployment</span></div>
+        <div class="entry-impact" data-i18n="e1-impact"><span>HoloLens 2 · MRTK</span><span>CAD ↔ physische Registrierung</span><span>Bahn-Deployment</span></div>
       </div>
     </article>
     <article class="entry reveal">
@@ -321,7 +321,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <div class="entry-body">
         <h3 data-i18n="e2-h3">Echtzeit-Daten in HoloLens-Anwendungen</h3>
         <p data-i18n="e2-p">Integration von Live-Sensor- und Maschinensteuerungsdaten in dynamische HoloLens-Apps sowie eine interaktive AR-Erfahrung für einen Luft- und Raumfahrtkunden — öffentlich zugänglich, zum Anfassen.</p>
-        <div class="entry-impact"><span>Live-Sensor- &amp; Steuerdaten</span><span>Echtzeit-AR-Pipeline</span><span>öffentliche Erfahrung</span></div>
+        <div class="entry-impact" data-i18n="e2-impact"><span>Live-Sensor- &amp; Steuerdaten</span><span>Echtzeit-AR-Pipeline</span><span>öffentliche Erfahrung</span></div>
       </div>
     </article>
     <article class="entry reveal">
@@ -329,7 +329,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <div class="entry-body">
         <h3 data-i18n="e3-h3">Mixed Reality für kollaborative Fabrikplanung</h3>
         <p data-i18n="e3-p">Ein gemeinsamer HoloLens-Arbeitsbereich für die Fabrikflächenplanung — Gestensteuerung, Kollisionserkennung, Live-Layout-Bearbeitung, Arbeit mit BIM- und IFC-Datenstandards. Mit Industriepartnern evaluiert.</p>
-        <div class="entry-impact"><span>Multi-User-Session</span><span>BIM / IFC-Standards</span><span>mit Industriepartnern evaluiert</span></div>
+        <div class="entry-impact" data-i18n="e3-impact"><span>Multi-User-Session</span><span>BIM / IFC-Standards</span><span>mit Industriepartnern evaluiert</span></div>
       </div>
     </article>
     <article class="entry reveal">
@@ -337,7 +337,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <div class="entry-body">
         <h3 data-i18n="e4-h3">ArztAssistent — KI für klinische Dokumentation</h3>
         <p data-i18n="e4-p">Wandelt Diktate und Konsultationsnotizen in strukturierte medizinische Dokumente um. Claude API + Python, strukturierter Output, DSGVO-konforme Datenverarbeitung — praxisnahe KI-Integration für ein reguliertes Feld.</p>
-        <div class="entry-impact"><span>lokales Whisper STT + LLM</span><span>keine Cloud-Abhängigkeit</span><span>DSGVO-konform</span></div>
+        <div class="entry-impact" data-i18n="e4-impact"><span>lokales Whisper STT + LLM</span><span>keine Cloud-Abhängigkeit</span><span>DSGVO-konform</span></div>
       </div>
     </article>
   </div>
@@ -428,23 +428,29 @@ const T = {
     'cred-ai': 'LLM-Integration — LangGraph, Claude API, FastAPI, Whisper, pgvector',
     'cred-edu': 'M.Sc. Automotive Software Engineering (TU Chemnitz)',
     'cred-based': 'Augsburg, Deutschland — verfügbar in der DACH-Region',
+    'tag-xr': '~4 J. XR',
+    'tag-emb': '~3 J. Embedded',
     'work-h2': 'Ausgewählte Projekte',
     'work-idx': '02 / das Logbuch',
     'e1-meta': '<span class="loc">München, DE</span><span class="org">Accenture</span> · 2021–25<br>Senior Engineer, Digitalisierung',
     'e1-h3': 'CAD-Overlay AR für Bahninspektion',
     'e1-p': 'HoloLens 2-Anwendung, die technisches CAD auf physische Schienenfahrzeuge überlagert — Registrierung des digitalen Zwillings mit dem, was der Techniker sieht; entwickelt mit Unity, Unreal und Microsoft MRTK.',
+    'e1-impact': '<span>HoloLens 2 · MRTK</span><span>CAD ↔ physische Registrierung</span><span>Bahn-Deployment</span>',
     'e1-status': '',
     'e2-meta': '<span class="loc">DE / intl.</span><span class="org">Accenture</span> · 2021–25<br>Luft- und Raumfahrtkunde',
     'e2-h3': 'Echtzeit-Daten in HoloLens-Anwendungen',
     'e2-p': 'Integration von Live-Sensor- und Maschinensteuerungsdaten in dynamische HoloLens-Apps sowie eine interaktive AR-Erfahrung für einen Luft- und Raumfahrtkunden — öffentlich zugänglich, zum Anfassen.',
+    'e2-impact': '<span>Live-Sensor- &amp; Steuerdaten</span><span>Echtzeit-AR-Pipeline</span><span>öffentliche Erfahrung</span>',
     'e2-status': '',
     'e3-meta': '<span class="loc">Augsburg, DE</span><span class="org">Fraunhofer IGCV</span> · 2021<br>M.Sc. Abschlussarbeit',
     'e3-h3': 'Mixed Reality für kollaborative Fabrikplanung',
     'e3-p': 'Ein gemeinsamer HoloLens-Arbeitsbereich für die Fabrikflächenplanung — Gestensteuerung, Kollisionserkennung, Live-Layout-Bearbeitung, Arbeit mit BIM- und IFC-Datenstandards. Mit Industriepartnern evaluiert.',
+    'e3-impact': '<span>Multi-User-Session</span><span>BIM / IFC-Standards</span><span>mit Industriepartnern evaluiert</span>',
     'e3-status': '',
     'e4-meta': '<span class="loc">on-premise</span><span class="org">eigenes Projekt</span><br>KI · reguliert',
     'e4-h3': 'ArztAssistent — KI für klinische Dokumentation',
     'e4-p': 'Wandelt Diktate und Konsultationsnotizen in strukturierte medizinische Dokumente um. Claude API + Python, strukturierter Output, DSGVO-konforme Datenverarbeitung — praxisnahe KI-Integration für ein reguliertes Feld.',
+    'e4-impact': '<span>lokales Whisper STT + LLM</span><span>keine Cloud-Abhängigkeit</span><span>DSGVO-konform</span>',
     'e4-status': '',
     'svc-h2': 'Was ich mache',
     'svc-idx': '03 / Leistungen',
@@ -487,23 +493,29 @@ const T = {
     'cred-ai': 'LLM integration — LangGraph, Claude API, FastAPI, Whisper, pgvector',
     'cred-edu': 'M.Sc. Automotive Software Engineering (TU Chemnitz)',
     'cred-based': 'Augsburg, Germany — available across DACH',
+    'tag-xr': '~4 yrs XR',
+    'tag-emb': '~3 yrs Embedded',
     'work-h2': 'Selected work',
     'work-idx': '02 / the logbook',
     'e1-meta': '<span class="loc">Munich, DE</span><span class="org">Accenture</span> · 2021–25<br>Senior Engineer, Digitalization',
     'e1-h3': 'CAD-overlay AR for rail inspection',
     'e1-p': 'HoloLens 2 experience overlaying engineering CAD onto physical rolling stock — registering the digital twin to what the technician sees, built with Unity, Unreal and Microsoft MRTK.',
+    'e1-impact': '<span>HoloLens 2 · MRTK</span><span>CAD ↔ physical registration</span><span>rail deployment</span>',
     'e1-status': '',
     'e2-meta': '<span class="loc">DE / intl.</span><span class="org">Accenture</span> · 2021–25<br>aerospace client',
     'e2-h3': 'Real-time data into HoloLens applications',
     'e2-p': 'Integrating live sensor and machine-control data into dynamic HoloLens apps, and an interactive AR experience for an aerospace client — public-facing, hands-on.',
+    'e2-impact': '<span>live sensor &amp; control data</span><span>real-time AR pipeline</span><span>public-facing experience</span>',
     'e2-status': '',
     'e3-meta': '<span class="loc">Augsburg, DE</span><span class="org">Fraunhofer IGCV</span> · 2021<br>M.Sc. thesis',
     'e3-h3': 'Mixed reality for collaborative factory planning',
     'e3-p': 'A shared HoloLens workspace for laying out factory floors — gesture control, collision detection, live layout editing, working with BIM and IFC data standards. Evaluated with industry partners.',
+    'e3-impact': '<span>multi-user session</span><span>BIM / IFC standards</span><span>evaluated with industry partners</span>',
     'e3-status': '',
     'e4-meta': '<span class="loc">on-premise</span><span class="org">own project</span><br>AI · regulated',
     'e4-h3': 'ArztAssistent — clinical documentation AI',
     'e4-p': 'Turns dictation and consultation notes into structured medical documents. Claude API + Python, structured output, DSGVO-compliant data handling — practical AI integration for a regulated field.',
+    'e4-impact': '<span>local Whisper STT + LLM</span><span>no cloud dependency</span><span>DSGVO-compliant</span>',
     'e4-status': '',
     'svc-h2': 'What I do',
     'svc-idx': '03 / engagements',
