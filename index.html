@@ -381,6 +381,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
       <div class="contact-actions">
         <a class="btn btn-primary" href="mailto:abhijeet.rai101@gmail.com" data-i18n="btn-email">✉ E-Mail schreiben</a>
         <a class="btn btn-ghost" href="https://www.linkedin.com/in/abhijeet-rai-101" target="_blank" rel="noopener">in · linkedin</a>
+        <a class="btn btn-ghost" href="https://drive.google.com/file/d/1EIlgGfB6YE5QMk9AZmsdRuj9zJW09JiI/view?usp=sharing" target="_blank" rel="noopener" data-i18n="btn-cv" data-i18n-href="btn-cv-href">↓ Lebenslauf</a>
         <a class="btn btn-ghost" href="card.html" data-i18n="btn-card">▢ digitale Visitenkarte</a>
       </div>
     </div>
@@ -467,6 +468,8 @@ const T = {
     'contact-h2': 'Sprechen wir über die <em>Schnittstelle</em>.',
     'contact-lede': 'Wenn Sie Hersteller, Forschungsinstitut oder Serviceteam sind und an XR oder industrieller KI in der DACH-Region arbeiten — ich höre gerne, womit Sie feststecken.',
     'btn-email': '✉ E-Mail schreiben',
+    'btn-cv': '↓ Lebenslauf',
+    'btn-cv-href': 'https://drive.google.com/file/d/1EIlgGfB6YE5QMk9AZmsdRuj9zJW09JiI/view?usp=sharing',
     'btn-card': '▢ digitale Visitenkarte',
     'card-k-role-label': 'rolle',
     'card-k-role': 'Senior Engineer · XR &amp; Industrie-KI',
@@ -532,6 +535,8 @@ const T = {
     'contact-h2': "Let's talk about the <em>seam</em>.",
     'contact-lede': "If you're a manufacturer, research institute, or service team working on XR or industrial AI in the DACH region — I'd like to hear what you're stuck on.",
     'btn-email': '✉ email me',
+    'btn-cv': '↓ Resume',
+    'btn-cv-href': 'https://drive.google.com/file/d/1A30bijirYhtLuvC9LpOQ02nWqN8eSUGD/view?usp=sharing',
     'btn-card': '▢ digital card',
     'card-k-role-label': 'role',
     'card-k-role': 'Senior Engineer · XR &amp; Industrial AI',
@@ -546,6 +551,10 @@ function setLang(l) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.dataset.i18n;
     if (T[l][key] !== undefined) el.innerHTML = T[l][key];
+  });
+  document.querySelectorAll('[data-i18n-href]').forEach(el => {
+    const key = el.dataset.i18nHref;
+    if (T[l][key] !== undefined) el.href = T[l][key];
   });
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === l);
