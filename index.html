@@ -207,6 +207,22 @@ section{padding:96px 0;}
 footer{border-top:1px solid var(--rule);padding:26px 0;}
 .foot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:12px;color:var(--ink-soft);flex-wrap:wrap;gap:10px;}
 
+/* ───────────── Challenge (narrative opener) ───────────── */
+.challenge{padding-top:84px;padding-bottom:84px;}
+.challenge .lead-q{
+  font-family:var(--display);font-weight:600;
+  font-size:clamp(28px,4vw,46px);line-height:1.06;letter-spacing:-.01em;
+  max-width:20ch;margin-bottom:22px;
+}
+.challenge .lead-q em{font-style:italic;color:var(--cyan);}
+.challenge .lead-sub{font-size:21px;color:var(--ink-soft);max-width:54ch;margin-bottom:40px;}
+.pain-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);}
+.pain{background:var(--paper);padding:26px 24px;}
+.pain .pn{font-family:var(--mono);font-size:12px;color:var(--orange);letter-spacing:.04em;}
+.pain h3{font-family:var(--display);font-weight:600;font-size:19px;margin:12px 0 8px;line-height:1.2;}
+.pain p{font-size:15.5px;color:var(--ink-soft);}
+@media(max-width:860px){.pain-grid{grid-template-columns:1fr;}}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease;}
 .reveal.in{opacity:1;transform:none;}
@@ -244,6 +260,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
 <nav id="nav">
   <a class="nav-logo" href="#top">abhijeet<span>.rai</span></a>
   <div class="nav-links" id="navlinks">
+    <a href="#challenge" data-i18n="nav-challenge">ansatz</a>
     <a href="#about" data-i18n="nav-about">über mich</a>
     <a href="#work" data-i18n="nav-work">projekte</a>
     <a href="#services" data-i18n="nav-services">leistungen</a>
@@ -280,6 +297,28 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
 </header>
 
 <main>
+<section id="challenge" class="wrap challenge">
+  <h2 class="lead-q" data-i18n="ch-q">Interfaces — im Zeitalter der <em>KI</em>?</h2>
+  <p class="lead-sub" data-i18n="ch-sub">Industrieunternehmen sitzen auf präzisen digitalen Modellen ihrer Maschinen — und auf KI, die Daten verarbeiten kann, die das Gebäude nicht verlassen dürfen. Was fehlt, ist die Schicht dazwischen: dort, wo ein Techniker das Modell tatsächlich sieht und nutzt.</p>
+  <div class="pain-grid">
+    <div class="pain reveal">
+      <div class="pn">01</div>
+      <h3 data-i18n="pain1-h3">Der Zwilling und die Realität driften auseinander</h3>
+      <p data-i18n="pain1-p">CAD und Sensordaten existieren, aber niemand sieht sie dort, wo gearbeitet wird — an der Maschine selbst.</p>
+    </div>
+    <div class="pain reveal">
+      <div class="pn">02</div>
+      <h3 data-i18n="pain2-h3">XR-Demos, die nie in Produktion gehen</h3>
+      <p data-i18n="pain2-p">Beeindruckende Prototypen, die an realer Registrierung, echten Geräten und Wartbarkeit scheitern.</p>
+    </div>
+    <div class="pain reveal">
+      <div class="pn">03</div>
+      <h3 data-i18n="pain3-h3">KI, aber die Daten dürfen nicht in die Cloud</h3>
+      <p data-i18n="pain3-p">Regulierte Branchen wollen LLMs nutzen — ohne sensible Daten an externe Anbieter zu geben.</p>
+    </div>
+  </div>
+</section>
+
 <section id="about" class="band">
  <div class="wrap">
   <div class="sec-head">
@@ -346,8 +385,8 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
 <section id="services" class="band">
  <div class="wrap">
   <div class="sec-head">
-    <h2 data-i18n="svc-h2">Was ich mache</h2>
-    <span class="idx" data-i18n="svc-idx">03 / Leistungen</span>
+    <h2 data-i18n="svc-h2">Die Lösung: eine Schicht, drei Kompetenzen</h2>
+    <span class="idx" data-i18n="svc-idx">03 / der Ansatz</span>
   </div>
   <div class="svc-grid">
     <div class="svc reveal">
@@ -413,6 +452,15 @@ const T = {
     'page-title': 'Abhijeet Rai — XR, Digitale Zwillinge & Industrie-KI',
     'page-desc': 'Software-Ingenieur, der AR/VR- und KI-Systeme für industrielle und regulierte Umgebungen entwickelt. Luftfahrt, Bahn, Automobil, Medizintechnik.',
     'nav-about': 'über mich',
+    'nav-challenge': 'ansatz',
+    'ch-q': 'Interfaces — im Zeitalter der <em>KI</em>?',
+    'ch-sub': 'Industrieunternehmen sitzen auf präzisen digitalen Modellen ihrer Maschinen — und auf KI, die Daten verarbeiten kann, die das Gebäude nicht verlassen dürfen. Was fehlt, ist die Schicht dazwischen: dort, wo ein Techniker das Modell tatsächlich sieht und nutzt.',
+    'pain1-h3': 'Der Zwilling und die Realität driften auseinander',
+    'pain1-p': 'CAD und Sensordaten existieren, aber niemand sieht sie dort, wo gearbeitet wird — an der Maschine selbst.',
+    'pain2-h3': 'XR-Demos, die nie in Produktion gehen',
+    'pain2-p': 'Beeindruckende Prototypen, die an realer Registrierung, echten Geräten und Wartbarkeit scheitern.',
+    'pain3-h3': 'KI, aber die Daten dürfen nicht in die Cloud',
+    'pain3-p': 'Regulierte Branchen wollen LLMs nutzen — ohne sensible Daten an externe Anbieter zu geben.',
     'nav-work': 'projekte',
     'nav-services': 'leistungen',
     'nav-contact': 'kontakt',
@@ -454,8 +502,8 @@ const T = {
     'e4-p': 'Wandelt Diktate und Konsultationsnotizen in strukturierte medizinische Dokumente um. Claude API + Python, strukturierter Output, DSGVO-konforme Datenverarbeitung — praxisnahe KI-Integration für ein reguliertes Feld.',
     'e4-impact': '<span>lokales Whisper STT + LLM</span><span>keine Cloud-Abhängigkeit</span><span>DSGVO-konform</span>',
     'e4-status': '',
-    'svc-h2': 'Was ich mache',
-    'svc-idx': '03 / Leistungen',
+    'svc-h2': 'Die Lösung: eine Schicht, drei Kompetenzen',
+    'svc-idx': '03 / der Ansatz',
     'svc1-h3': 'Räumliche Interfaces für die Industrie',
     'svc1-p': 'Montageanleitung, Fernwartung, Schulung und Inspektion auf HoloLens 2 und Meta Quest 3 — an realen Geräten ausgerichtet, kein Tech-Demo.',
     'svc2-n': 'Digitale Zwillinge',
@@ -481,6 +529,15 @@ const T = {
     'page-title': 'Abhijeet Rai — XR, Digital Twins & AI for Industry',
     'page-desc': 'Software engineer building AR/VR and AI systems for industrial and regulated environments. Aerospace, rail, automotive, clinical.',
     'nav-about': 'about',
+    'nav-challenge': 'approach',
+    'ch-q': 'Interfaces — in the age of <em>AI</em>?',
+    'ch-sub': "Industrial companies sit on precise digital models of their machines — and on AI that can process data which can't leave the building. What's missing is the layer in between: where a technician actually sees and uses the model.",
+    'pain1-h3': 'The twin and reality drift apart',
+    'pain1-p': 'CAD and sensor data exist, but nobody sees them where the work happens — at the machine itself.',
+    'pain2-h3': 'XR demos that never reach production',
+    'pain2-p': 'Impressive prototypes that fail on real registration, real devices and maintainability.',
+    'pain3-h3': "AI, but the data can't go to the cloud",
+    'pain3-p': 'Regulated industries want to use LLMs — without handing sensitive data to external providers.',
     'nav-work': 'work',
     'nav-services': 'what i do',
     'nav-contact': 'contact',
@@ -522,8 +579,8 @@ const T = {
     'e4-p': 'Turns dictation and consultation notes into structured medical documents. Claude API + Python, structured output, DSGVO-compliant data handling — practical AI integration for a regulated field.',
     'e4-impact': '<span>local Whisper STT + LLM</span><span>no cloud dependency</span><span>DSGVO-compliant</span>',
     'e4-status': '',
-    'svc-h2': 'What I do',
-    'svc-idx': '03 / engagements',
+    'svc-h2': 'The solution: one layer, three competencies',
+    'svc-idx': '03 / the approach',
     'svc1-h3': 'Spatial interfaces for industry',
     'svc1-p': 'Assembly guidance, remote service, training and inspection on HoloLens 2 and Meta Quest 3 — registered to real equipment, not a tech demo.',
     'svc2-n': 'Digital twins',
