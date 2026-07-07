@@ -818,7 +818,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     });
 
     // knot sits just above the footer, at the end of the thread
-    const mobileBump = innerWidth <= 600 ? 35 : innerWidth <= 860 ? 40 : 0;
+    const mobileBump = innerWidth <= 600 ? 35 : innerWidth <= 860 ? 30 : 0;
     knotY = H - KNOT_OFFSET - mobileBump;
     knot.style.left = xAt(knotY) + 'px';
     knot.style.top = knotY + 'px';
