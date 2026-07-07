@@ -781,7 +781,16 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   document.body.appendChild(holder);
 
   // --- geometry -------------------------------------------------------
-  let H = 0, ticking = false;
+  let H = 0, ticking = false, knotY = 0;
+  // ── Tunable knobs ──────────────────────────────────────────────
+  // KNOT_OFFSET: how many px above the very bottom of the page the knot sits.
+  const KNOT_OFFSET = 96;
+  // SEAM_LOOKAHEAD: how far ahead of your scroll position the thread tip/needle
+  // rides, as a fraction of viewport height. 0 = tip glued to scroll position,
+  // 1 = tip a full screen ahead. This ALWAYS resolves to exactly knotY at the
+  // bottom of the page, so raising/lowering it only changes how far "ahead"
+  // the thread feels while scrolling — it can no longer cause a gap at the knot.
+  const SEAM_LOOKAHEAD = 0.72;
 
   function build() {
     H = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
@@ -809,7 +818,8 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
     });
 
     // knot sits just above the footer, at the end of the thread
-    const knotY = H - 96;
+    const mobileBump = innerWidth <= 600 ? 35 : innerWidth <= 860 ? 45 : 0;
+    knotY = H - KNOT_OFFSET - mobileBump;
     knot.style.left = xAt(knotY) + 'px';
     knot.style.top = knotY + 'px';
 
@@ -822,10 +832,14 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   }
 
   function draw() {
-    const max = Math.max(1, H - innerHeight);
-    const p = Math.min(1, Math.max(0, scrollY / max));
-    const tip = reduce ? H : Math.min(H, scrollY + innerHeight * 0.72);
-    mrect.setAttribute('height', tip);
+    const maxScroll = Math.max(1, H - innerHeight);
+    const p = Math.min(1, Math.max(0, scrollY / maxScroll));
+    const lookahead = innerHeight * SEAM_LOOKAHEAD;
+    // Linear ramp from "lookahead" (top of page) to exactly knotY (bottom of
+    // page) — guarantees the thread and needle always meet the knot precisely
+    // when you hit the bottom, regardless of viewport size or page length.
+    const tip = reduce ? knotY : Math.min(knotY, lookahead + p * (knotY - lookahead));
+    mrect.setAttribute('height', Math.max(0, tip));
 
     if (!reduce) {
       const slope = (AMP / WAVE) * Math.cos(tip / WAVE);
@@ -835,7 +849,7 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
       needle.querySelector('svg').style.transform = 'rotate(' + ang.toFixed(1) + 'deg)';
     }
 
-    document.body.classList.toggle('seam-done', reduce || p >= 0.985);
+    document.body.classList.toggle('seam-done', reduce || tip >= knotY - 1);
   }
 
   addEventListener('scroll', () => {
