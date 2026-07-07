@@ -120,7 +120,7 @@ header.hero{padding:170px 32px 100px;position:relative;max-width:1140px;margin:0
   border:1px solid var(--rule);
   box-shadow:14px 14px 0 -2px var(--paper-2),14px 14px 0 -1px var(--rule);
 }
-.annot{position:absolute;font-family:var(--mono);font-size:11px;color:var(--orange);letter-spacing:.04em;white-space:nowrap;}
+.annot{position:absolute;z-index:4;font-family:var(--mono);font-size:11px;color:var(--orange);letter-spacing:.04em;white-space:nowrap;}
 .annot.tl{top:-28px;left:6px;transform:rotate(-3deg);}
 .annot svg{position:absolute;overflow:visible;pointer-events:none;}
 .hero-callouts{display:flex;gap:8px;margin-top:34px;flex-wrap:wrap;}
@@ -279,9 +279,9 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
   <div class="hero-grid">
     <div>
       <div class="eyebrow hero-loc" data-i18n="hero-loc">Augsburg · München · DACH-Region</div>
-      <h1 data-i18n="hero-h1">Abhijeet&nbsp;Rai —<br>Ich entwickle <em>Spatial-Computing</em>-&amp; <em>KI</em>-Systeme für die Industrie.</h1>
-      <p class="hero-lede" data-i18n="hero-lede">Software-Ingenieur an der Schnittstelle von <b>semantischen Daten</b> und <b>visuellen Interfaces</b>: HoloLens, Meta Quest, digitale Zwillinge.</p>
-      <p class="hero-sub" data-i18n="hero-sub">XR / räumliches Computing · industrielle KI &amp; LLM-Integration<br>Luftfahrt · Bahn · Automobil · regulierte Bereiche</p>
+      <h1 data-i18n="hero-h1">Abhijeet&nbsp;Rai —<br><em>Spatial-Computing</em>-&amp; <em>KI</em>-Systeme für die Industrie.</h1>
+      <p class="hero-lede" data-i18n="hero-lede">An der Schnittstelle von <b>semantischen Daten</b> und <b>visuellen Interfaces</b>: HoloLens, Meta Quest, digitale Zwillinge.</p>
+      <p class="hero-sub" data-i18n="hero-sub">XR / Spatial Computing · industrielle KI &amp; LLM-Integration<br>Luftfahrt · Bahn · Automobil</p>
       <div class="hero-callouts">
         <span class="tag" data-i18n="tag-xr">~4 J. XR</span>
         <span class="tag" data-i18n="tag-emb">~3 J. Embedded</span>
@@ -309,7 +309,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
     <div class="pain reveal">
       <div class="pn">02</div>
       <h3 data-i18n="pain2-h3">XR-Demos, die nie in Produktion gehen</h3>
-      <p data-i18n="pain2-p">Beeindruckende Prototypen, die an realer Registrierung, echten Geräten und Wartbarkeit scheitern.</p>
+      <p data-i18n="pain2-p">Beeindruckende Prototypen, die im Feld scheitern — weil das digitale Overlay nicht präzise auf der realen Maschine sitzt, die Hardware im Alltag nicht mithält und niemand das System später pflegen kann.</p>
     </div>
     <div class="pain reveal">
       <div class="pn">03</div>
@@ -458,15 +458,15 @@ const T = {
     'pain1-h3': 'Der Zwilling und die Realität driften auseinander',
     'pain1-p': 'CAD und Sensordaten existieren, aber niemand sieht sie dort, wo gearbeitet wird — an der Maschine selbst.',
     'pain2-h3': 'XR-Demos, die nie in Produktion gehen',
-    'pain2-p': 'Beeindruckende Prototypen, die an realer Registrierung, echten Geräten und Wartbarkeit scheitern.',
+    'pain2-p': 'Beeindruckende Prototypen, die im Feld scheitern — weil das digitale Overlay nicht präzise auf der realen Maschine sitzt, die Hardware im Alltag nicht mithält und niemand das System später pflegen kann.',
     'pain3-h3': 'KI, aber die Daten dürfen nicht in die Cloud',
     'pain3-p': 'Regulierte Branchen wollen LLMs nutzen — ohne sensible Daten an externe Anbieter zu geben.',
     'nav-work': 'projekte',
     'nav-services': 'leistungen',
     'nav-contact': 'kontakt',
-    'hero-h1': 'Abhijeet Rai —<br>Ich entwickle <em>Spatial-Computing</em>-&amp; <em>KI</em>-Systeme für die Industrie.',
-    'hero-lede': 'Software-Ingenieur an der Schnittstelle von <b>semantischen Daten</b> und <b>visuellen Interfaces</b>: HoloLens, Meta Quest, digitale Zwillinge.',
-    'hero-sub': 'XR / räumliches Computing · industrielle KI &amp; LLM-Integration<br>Luftfahrt · Bahn · Automobil · regulierte Bereiche',
+    'hero-h1': 'Abhijeet Rai —<br><em>Spatial-Computing</em>-&amp; <em>KI</em>-Systeme für die Industrie.',
+    'hero-lede': 'An der Schnittstelle von <b>semantischen Daten</b> und <b>visuellen Interfaces</b>: HoloLens, Meta Quest, digitale Zwillinge.',
+    'hero-sub': 'XR / Spatial Computing · industrielle KI &amp; LLM-Integration<br>Luftfahrt · Bahn · Automobil',
     'hero-loc': 'Augsburg · München · DACH-Region',
     'hero-annot': '// Ingenieur, kein Demo-Reel',
     'about-h2': 'Über mich',
@@ -535,15 +535,15 @@ const T = {
     'pain1-h3': 'The twin and reality drift apart',
     'pain1-p': 'CAD and sensor data exist, but nobody sees them where the work happens — at the machine itself.',
     'pain2-h3': 'XR demos that never reach production',
-    'pain2-p': 'Impressive prototypes that fail on real registration, real devices and maintainability.',
+    'pain2-p': 'Impressive prototypes that fail in the field — because the digital overlay doesn\'t sit precisely on the real machine, the hardware can\'t keep up in daily use, and nobody can maintain the system afterwards.',
     'pain3-h3': "AI, but the data can't go to the cloud",
     'pain3-p': 'Regulated industries want to use LLMs — without handing sensitive data to external providers.',
     'nav-work': 'work',
     'nav-services': 'what i do',
     'nav-contact': 'contact',
-    'hero-h1': 'Abhijeet Rai —<br>I build <em>spatial-computing</em> &amp; <em>AI</em> systems for industry.',
-    'hero-lede': 'Software engineer working where <b>semantic data</b> meets the <b>visual interface</b>: HoloLens, Meta Quest, digital twins.',
-    'hero-sub': 'XR / spatial computing · industrial AI &amp; LLM integration<br>aerospace · rail · automotive · regulated domains',
+    'hero-h1': 'Abhijeet Rai —<br><em>Spatial-Computing</em> &amp; <em>AI</em> systems for industry.',
+    'hero-lede': 'Where <b>semantic data</b> meets the <b>visual interface</b>: HoloLens, Meta Quest, digital twins.',
+    'hero-sub': 'XR / Spatial Computing · Industrial AI &amp; LLM Integration<br>Aerospace · Rail · Automotive',
     'hero-loc': 'Augsburg · Munich · DACH region',
     'hero-annot': '// engineer, not a demo reel',
     'about-h2': 'About',
