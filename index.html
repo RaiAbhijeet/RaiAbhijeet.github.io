@@ -118,10 +118,41 @@ header.hero{padding:170px 32px 100px;position:relative;max-width:1140px;margin:0
   width:100%;border-radius:2px;
   filter:grayscale(.35) contrast(1.03);
   border:1px solid var(--rule);
-  box-shadow:14px 14px 0 -2px var(--paper-2),14px 14px 0 -1px var(--rule);
+  display:block;
+}
+.photo-pin{
+  position:relative;
+  width:100%;
+  transform:rotate(10deg);
+  transform-origin:center center;
+}
+.photo-pin::before,
+.photo-pin::after{
+  content:'';
+  position:absolute;
+  width:72px;
+  height:24px;
+  background:rgba(255,244,162,.46);
+  background-image:linear-gradient(90deg,rgba(255,255,255,.18),rgba(255,255,255,0) 40%,rgba(255,255,255,.12));
+  transform:rotate(45deg);
+  transform-origin:center center;
+  z-index:5;
+  border-left:1px solid rgba(200,180,100,.16);
+  border-right:1px solid rgba(200,180,100,.16);
+  box-shadow:0 1px 3px rgba(0,0,0,.10);
+}
+.photo-pin::before{
+  /* top-right corner */
+  top:-12px;
+  right:-36px;
+}
+.photo-pin::after{
+  /* bottom-left corner */
+  bottom:-12px;
+  left:-36px;
 }
 .annot{position:absolute;z-index:4;font-family:var(--mono);font-size:11px;color:var(--orange);letter-spacing:.04em;white-space:nowrap;}
-.annot.tl{top:-28px;left:6px;transform:rotate(-3deg);}
+.annot.tl{top:-50px;left:6px;transform:rotate(-3deg);}
 .annot svg{position:absolute;overflow:visible;pointer-events:none;}
 .hero-callouts{display:flex;gap:8px;margin-top:34px;flex-wrap:wrap;}
 .tag{font-family:var(--mono);font-size:12px;padding:6px 12px;border:1px solid var(--rule);border-radius:2px;color:var(--ink-soft);background:rgba(255,255,255,.25);}
@@ -236,7 +267,7 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
   .nav-links.open{transform:none;}
   .nav-toggle{display:block;z-index:101;}
   .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
-  .hero-portrait{max-width:340px;margin-top:28px;}
+  .hero-portrait{max-width:300px;margin-top:28px;margin-left:auto;margin-right:auto;}
   .svc-grid{grid-template-columns:1fr;}
   .entry{grid-template-columns:1fr;gap:8px;}
   .entry-status{justify-self:start;}
@@ -291,7 +322,9 @@ footer{border-top:1px solid var(--rule);padding:26px 0;}
     </div>
     <div class="hero-portrait reveal">
       <span class="annot tl" data-i18n="hero-annot">// Ingenieur, kein Demo-Reel</span>
-      <img src="assets/img/portrait.jpg" alt="Abhijeet Rai">
+      <div class="photo-pin">
+        <img src="assets/img/portrait.jpg" alt="Abhijeet Rai">
+      </div>
     </div>
   </div>
 </header>
